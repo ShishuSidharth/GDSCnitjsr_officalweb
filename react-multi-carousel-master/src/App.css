@@ -1,0 +1,104 @@
+
+ 
+#root {
+  font-family: "Lato", sans-serif;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 1rem auto 4rem;
+}
+h3 {
+
+  font-size: 1.2em; /* Adjust the font size as needed */
+}
+
+h4 {
+  font-weight: normal;
+  font-size: 1.2em; /* Adjust the font size as needed */
+}
+
+.product--container {
+  position: relative;
+  overflow: hidden;
+}
+
+.product--image {
+  width: 100%;
+  height: 16em;
+  object-fit: cover;
+  border-radius: 10% 10% 70% 0; /* 50% for top left and top right corners, 0 for bottom left and bottom right */
+}
+/* Add this to your existing CSS file */
+
+.rectangular-box {
+  font-family: "Patrick Hand", cursive;
+  position: absolute;
+  opacity: 75%;
+  bottom: 37%;
+  right: 0;
+  width: 85%;
+  height: 15%;
+  background-color: #9f1d1d;
+  /* Add styles for text */
+  color: white; /* Text color */
+  font-size: 1.7em; /* Adjust the font size */
+  text-align: center; /* Align text in the center */
+  line-height: 1.4; /* Adjust the line height for better spacing */
+}
+
+.rectangular-box2 {
+  font-family: "Patrick Hand", cursive;
+  position: absolute;
+  opacity: 75%;
+  bottom: 31%;
+  right: 0;
+  width: 70%;
+  height: 10%;
+  background-color: #9f1d1d;
+  /* Add styles for text */
+  color: white; /* Text color */
+  font-size: 1.4em; /* Adjust the font size */
+  text-align: center; /* Align text in the center */
+  line-height: 2.2; /* Adjust the line height for better spacing */
+}
+
+.card {
+  position: relative; /* Make the card position relative to allow absolute positioning for the rectangular box */
+  box-shadow: 0.5em 0.25em 0.5em 0em rgba(0, 0, 0, 0.2);
+  max-width: 20em;
+  margin: auto 1em;
+  text-align: center;
+  font-family: arial;
+  border-radius: 10% 10% 10% 10%; /* Adjust the value as needed */
+}
+
+.price {
+  color: grey;
+  font-size: 1.375em; /* Equivalent to 22px */
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 0.5em; /* Adjust the padding for a smaller button */
+  margin-bottom: 0.375em; /* Equivalent to 6px */
+  color: white;
+  background-color: #9f1d1d;
+  text-align: center;
+  cursor: pointer;
+  width: 60%; /* Adjust the width to make it slightly smaller */
+  font-size: 1em; /* Equivalent to 16px */
+  border-radius: 0.5em; /* Adjust the border-radius for rounded corners */
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+/* Add this to your App.css or another CSS file */
+
+
