@@ -45,7 +45,7 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
 
-    const response = await fetch("https://gdscbackend-alpha.vercel.app/api/v1/signup", {
+    const response = await fetch("localhost:3080/api/v1/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
