@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const verifyToken = async (req, res) => {
   try {
     const { token } = req.body;
-    const result = await jwt.verify(token,'12bob12ou2b1ob');
+    const result = await jwt.verify(token,'h12bob12ou2b1ob');
     res.status(200).json({
       result,
     });
