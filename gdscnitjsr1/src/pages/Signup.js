@@ -24,7 +24,7 @@ const Signup = () => {
 
   const handleValidation = () => {
     if (
-      // details.email.endsWith("@nitjsr.ac.in") &&
+      details.email.endsWith("@nitjsr.ac.in") &&
       details.password === details.confirmPassword &&
       details.password !== "" &&
       details.name !== "" &&
