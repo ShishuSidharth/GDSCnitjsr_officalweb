@@ -8,3 +8,4 @@
 # CLOUDINARY_CLOUD_NAME
 # RESEND_API_KEY
 # MONGO_URL
+# replace https://gdscbackend-alpha.vercel.app to the deployed backend server in routes/signup.js for email verfication
