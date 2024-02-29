@@ -54,7 +54,7 @@ router.post("/signup", async (req, res) => {
       from: "Acme <onboarding@resend.dev>",
       to: ["shishu.jsrsidh@gmail.com"],
       subject: "Email Verification",
-      html: `Someone with the name :  ${name} and Email id : ${email} just registered on the GDSC Admin portal.<br> Click here https://gdscbackend-alpha.vercel.app/api/v1/verify/${verificationToken} to verify ${name}.`,
+      html: `Someone with the name :  ${name} and Email id : ${email} just registered on the GDSC Admin portal.<br> Click here https://gds-cnitjsr-officalweb.vercel.app/api/v1/verify/${verificationToken} to verify ${name}.`,
     });
   
     // if (error) {
