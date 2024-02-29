@@ -24,7 +24,7 @@ const Signup = () => {
 
   const handleValidation = () => {
     if (
-      details.email.endsWith("@nitjsr.ac.in") &&
+      // details.email.endsWith("@nitjsr.ac.in") &&
       details.password === details.confirmPassword &&
       details.password !== "" &&
       details.name !== "" &&
@@ -45,7 +45,7 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
 
-    const response = await fetch("localhost:3080/api/v1/signup", {
+    const response = await fetch("https://gds-cnitjsr-officalweb.vercel.app/api/v1/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

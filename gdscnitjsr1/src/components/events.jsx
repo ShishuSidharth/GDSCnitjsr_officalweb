@@ -43,7 +43,7 @@ const options = { year: 'numeric', month: 'short', day: 'numeric' };
     />
   ));
   const fetchdata = async ()=>{
-              const response= await axios.get('localhost:3080/api/v1/displayevents')
+              const response= await axios.get('https://gds-cnitjsr-officalweb.vercel.app/api/v1/displayevents')
               console.log(response.data)
               setproductdata(response.data)
   }

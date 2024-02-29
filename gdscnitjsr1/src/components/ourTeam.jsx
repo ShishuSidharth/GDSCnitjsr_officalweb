@@ -67,7 +67,7 @@ const OurTeam =() => {
     const baseurl = 'localhost:3080/';
       const [profiles,setprofiles]=useState([])
     const fetchdata =  async () =>{
-      const response = await axios.get('localhost:3080/api/v1/displaymembers')
+      const response = await axios.get('https://gds-cnitjsr-officalweb.vercel.app/api/v1/displaymembers')
        setprofiles(response.data)
       console.log(response.data)
     }

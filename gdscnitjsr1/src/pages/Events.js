@@ -24,7 +24,7 @@ const Addevents = () => {
       navigate("/login");
     } else {
       const ans = await axios.post(
-        "localhost:3080/api/user/authenticate",
+        "https://gds-cnitjsr-officalweb.vercel.app/api/user/authenticate",
         {
           email: value,
         }
@@ -77,7 +77,7 @@ const Addevents = () => {
     formData.append("image",image)
     console.log(thumbnail);
     const response = await axios.post(
-      "localhost:3080/api/v1/addevents",
+      "https://gds-cnitjsr-officalweb.vercel.app/api/v1/addevents",
       formData,
       {
         headers: {
