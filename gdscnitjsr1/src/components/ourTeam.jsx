@@ -88,16 +88,7 @@ const OurTeam =() => {
       
       <Swiper
   spaceBetween={50}
-  slidesPerView={{function(){
-    if(window.innerWidth>=850){
-      return 3;
-    }else if(window.innerWidth>=580){
-      return 2;
-
-    }else{
-      return 1;
-    }
-  }}}
+  slidesPerView={3}
   slidesPerColumn={2} // Set the number of rows
   onSlideChange={() => console.log('slide change')}
   onSwiper={(swiper) => console.log(swiper)}
