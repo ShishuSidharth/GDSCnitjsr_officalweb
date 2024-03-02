@@ -10,35 +10,29 @@ import swiggly7 from '../assets/swiggly7.jpg'
 import group from '../assets/Group.jpg'
 import circle from '../assets/circle.jpg'
 import rectangle from '../assets/rectangle.jpg'
+import Llogo from '../img/gdsc bracket left.svg'
+import Rlogo from '../img/gdsc bracket right.svg'
 
 function Socials() {
   return (
     <div className='' id="socials">
 
 <div className='absolute inset-0'>
-  <img className="w-[112.19px] h-[110.66px] absolute  mt-[44.77px] transform rotate-31" src={swiggly1} alt=''/>
+  <img className="w-[112.19px] h-[110.66px] absolute  mt-[44.77px] transform rotate-31 z-[-1]" src={swiggly1} alt=''/>
 </div>
 
 
 
-<div className='flex justify-center mt-[100px]'>
-<div className='flex justify-center  w-[335px] h-[79px]  '>
- {/* absolute top-[100px] left-[552px] */}
-       
-           <div>
-          <img className="w-[29.68px] h-[24.46px]" src={leftbracket} alt=''/>
-        </div>
+<div className="flex justify-center items-center">
+        
+<img src={Llogo}/>
+<h1 className=" font-Patrick sm:text-[64px] text-[30px] z-50 " >Socials</h1>          
+<img src={Rlogo}/>
 
-        <div > 
-           <h2 className='w-[167px] h-[79px] relative mt-[-10px] font-patrick-hand text-4xl font-normal  tracking-normal text-center'>Socials</h2>
-        </div>
 
-        <div>
-          <img className="w-[29.68px] h-[24.46px] " src={rightbracket} alt=''/>
+            
+
         </div>
-      
-      </div>
-</div>
  
  <div className='flex justify-center mt-[-30px]'>
     <p className=' w-[826px] h-[35px]  font-lato text-base font-normal leading-6 text-center text-gray-600'>

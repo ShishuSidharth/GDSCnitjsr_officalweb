@@ -7,7 +7,8 @@ import {  responsive } from "./dataEvents";
 import eventImage from "../pics/Header (1).png"; // Import your event image
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import Llogo from '../img/gdsc bracket left.svg'
+import Rlogo from '../img/gdsc bracket right.svg'
 export default function Events() {
   const [productData,setproductdata]=useState([])
   const baseurl = 'localhost:3080/';
@@ -54,9 +55,16 @@ const options = { year: 'numeric', month: 'short', day: 'numeric' };
 
   return (
     <div className="App" id="events">
-         <h1>
-        <img src={eventImage} alt="Events" className="event-image" />
-      </h1>
+        <div className="flex justify-center items-center">
+        
+        <img src={Llogo}/>
+        <h1 className=" font-Patrick sm:text-[64px] text-[30px] " >Events</h1>          
+        <img src={Rlogo}/>
+        
+        
+                    
+        
+                </div>
       <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#555' }}>The Google Developer Student Clubs (GDSC) at the National Institute of Technology (NIT) Jamshedpur have become a beacon of innovation and collaboration, illuminating the tech landscape with a fusion of knowledge and creativity. NIT Jamshedpur, in partnership with GDSC, has orchestrated a series of transformative events that have not only enriched the learning experience but have also etched a lasting impact on the tech community.
 
 In the heart of NIT Jamshedpur, GDSC has created a dynamic platform where students, faculty, and industry professionals converge to explore the realms of technology. Through hackathons, workshops, and engaging sessions, the collaboration between GDSC and NIT Jamshedpur has become a catalyst for cultivating a culture of continuous learning and innovation on the campus.

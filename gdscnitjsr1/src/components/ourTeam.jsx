@@ -78,19 +78,9 @@ const OurTeam =() => {
   return (
     <div className="container mx-auto px-4 mt-10"  id="our-team">
       <div className="flex items-center justify-center">
-        <img
-          className="mr-4"
-                  src={Llogo} 
-          alt="left bracket"
-        /> 
-        <p className="font-Patric text-4xl text-black-600 capitalize">
-          Our Team
-        </p>
-        <img
-          className="ml-4"
-          src={Rlogo} 
-          alt="right bracket"
-        />
+      <img src={Llogo}/>
+<h1 className=" font-Patrick sm:text-[64px] text-[30px] " > Our Team</h1>          
+<img src={Rlogo}/>
       </div>
       <div className='flex items-center justify-center mx-0'>
         <p className='lg:w-2/4 w-5/6 text-center m-10 text-[#5F6368] text-[25px] font-Lato'>Meet the incredible GDSC team - a synergy of coding brilliance, design prowess, strategic minds, and innovation wizards. Together, they propel the boundaries of technology.</p>
