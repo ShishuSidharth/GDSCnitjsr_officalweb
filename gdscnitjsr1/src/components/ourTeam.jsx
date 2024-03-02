@@ -87,7 +87,7 @@ const OurTeam =() => {
       </div>
       
       <Swiper
-  spaceBetween={50}
+  // spaceBetween={50}
   slidesPerView={3}
   slidesPerColumn={2} // Set the number of rows
   onSlideChange={() => console.log('slide change')}
