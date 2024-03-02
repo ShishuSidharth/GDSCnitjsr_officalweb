@@ -35,14 +35,15 @@ function Socials() {
         </div>
  
  <div className='flex justify-center mt-[-30px]'>
-    <p className=' w-[826px] h-[35px]  font-lato text-base font-normal leading-6 text-center text-gray-600'>
+    <p className=' sm:text-[24px] text-[16px] font-Lato  text-[#5F6368] self-center mt-[44px]'>
         Let’s stay in touch so that you don’t miss out on exciting updates.
        
           
         </p>   
       </div>
 
-
+      <br/>
+      <br/>
  
      
       

@@ -28,7 +28,19 @@ const swiperOptions = {
   onSwiper: (swiper) => console.log(swiper),
   onSlideChange: () => console.log('slide change'),
 };
+
 const OurTeam =() => {
+  
+  const slideno= function(){
+    if(window.innerWidth>=850){
+      return 3;
+    }else if(window.innerWidth>=580){
+      return 2;
+
+    }else{
+      return 1;
+    }
+  }
 
     const  profile = [
         {
@@ -83,21 +95,14 @@ const OurTeam =() => {
 <img src={Rlogo}/>
       </div>
       <div className='flex items-center justify-center mx-0'>
-        <p className='lg:w-2/4 w-5/6 text-center m-10 text-[#5F6368] text-[25px] font-Lato'>Meet the incredible GDSC team - a synergy of coding brilliance, design prowess, strategic minds, and innovation wizards. Together, they propel the boundaries of technology.</p>
+        <p className='sm:text-[24px] text-[16px] font-Lato  text-[#5F6368] self-center mt-[44px]'>Meet the incredible GDSC team - a synergy of coding brilliance, design prowess, strategic minds, and innovation wizards. Together, they propel the boundaries of technology.</p>
       </div>
+      <br/>
+      <br/>
       
       <Swiper
   spaceBetween={50}
-  slidesPerView={{function(){
-    if(window.innerWidth>=850){
-      return 3;
-    }else if(window.innerWidth>=580){
-      return 2;
-
-    }else{
-      return 1;
-    }
-  }}}
+  slidesPerView={slideno()}
   slidesPerColumn={2} // Set the number of rows
   onSlideChange={() => console.log('slide change')}
   onSwiper={(swiper) => console.log(swiper)}

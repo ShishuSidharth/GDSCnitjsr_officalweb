@@ -14,9 +14,11 @@ const home = () => {
     <Navbar />
     
     <Hero />
-    <About />
-    <OurTeam />
+    <br/><br/><br/>
+    <About /><br/><br/><br/>
+    <OurTeam /><br/><br/><br/>
     <EventsComponent />
+    <br/><br/><br/>
     <Socials />
     <Footer />
   </div>
