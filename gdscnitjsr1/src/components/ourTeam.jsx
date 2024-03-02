@@ -64,6 +64,25 @@ const OurTeam =() => {
 
 
     ]
+    function screen_resize() {
+      var h = parseInt(window.innerHeight);
+      var w = parseInt(window.innerWidth);
+
+      if(w <= 500) {
+          //max-width 500px
+          // actions here...
+          return 1;
+      } else if(w > 500 && w <=850) {
+          //max-width 850px
+          // actions here...
+          return 2;
+      } else {
+          // 850px and beyond
+          // actions here...
+          return 3;
+      }
+
+  }
     const baseurl = 'localhost:3080/';
       const [profiles,setprofiles]=useState([])
     const fetchdata =  async () =>{
@@ -88,7 +107,7 @@ const OurTeam =() => {
       
       <Swiper
   // spaceBetween={50}
-  slidesPerView={3}
+  slidesPerView= {screen_resize()}
   slidesPerColumn={2} // Set the number of rows
   onSlideChange={() => console.log('slide change')}
   onSwiper={(swiper) => console.log(swiper)}
