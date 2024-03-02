@@ -1,4 +1,4 @@
-import { v2 as cloudinary } from "cloudinary";
+const cloudinary=require("cloudinary").v2
 // otenv"
 // dotenv.config()
           
@@ -24,7 +24,7 @@ cloudinary.config({
 //     return null
 //   }
 // }
-    export defaultcloudinary
+    module.exports=cloudinary
 
 
 
