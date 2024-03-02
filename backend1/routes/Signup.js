@@ -3,7 +3,9 @@ const router = express.Router();
 const Admin = require("../models/Admin");
 const randomstring = require('randomstring');
 const nodemailer = require('nodemailer');
+require('dotenv').config({path:'../.env'});
 // const 
+require('dotenv').config({path:'../.env'});
 // const dotenv = require("dotenv");
 const bcrypt = require("bcrypt");
 const  { Resend } = require("resend");

@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-
+require('dotenv').config({path:'../.env'});
 const verifyToken = async (req, res) => {
   try {
     const { token } = req.body;

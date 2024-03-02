@@ -1,7 +1,7 @@
 const cloudinary=require("cloudinary").v2
 // otenv"
 // dotenv.config()
-          
+require('dotenv').config({path:'../.env'});        
 cloudinary.config({ 
   cloud_name: process.env.cLOUD_NAME, 
   api_key: process.env.API_KEY, 
