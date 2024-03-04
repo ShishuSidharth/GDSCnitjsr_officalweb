@@ -1,9 +1,9 @@
 const jwt = require("jsonwebtoken");
-
+require('dotenv').config({path:'../.env'});
 const verifyToken = async (req, res) => {
   try {
     const { token } = req.body;
-    const result = await jwt.verify(token,'h12bob12ou2b1ob');
+    const result = await jwt.verify(token,process.env.JWT_SECRET);
     res.status(200).json({
       result,
     });

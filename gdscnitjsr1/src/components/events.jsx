@@ -61,15 +61,9 @@ const options = { year: 'numeric', month: 'short', day: 'numeric' };
         <h1 className=" font-Patrick sm:text-[64px] text-[30px] " >Events</h1>          
         <img src={Rlogo}/>
         
-        
-                    
-        
                 </div>
-      <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#555' }}>The Google Developer Student Clubs (GDSC) at the National Institute of Technology (NIT) Jamshedpur have become a beacon of innovation and collaboration, illuminating the tech landscape with a fusion of knowledge and creativity. NIT Jamshedpur, in partnership with GDSC, has orchestrated a series of transformative events that have not only enriched the learning experience but have also etched a lasting impact on the tech community.
-
-In the heart of NIT Jamshedpur, GDSC has created a dynamic platform where students, faculty, and industry professionals converge to explore the realms of technology. Through hackathons, workshops, and engaging sessions, the collaboration between GDSC and NIT Jamshedpur has become a catalyst for cultivating a culture of continuous learning and innovation on the campus.
-</p>
-
+      <p className="sm:text-[24px] text-[16px] font-Lato  text-[#5F6368] self-center mt-[44px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      <br/>
       <Carousel showDots={true} responsive={responsive}>
         {product}
       </Carousel>

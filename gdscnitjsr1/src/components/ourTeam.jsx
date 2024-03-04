@@ -28,7 +28,19 @@ const swiperOptions = {
   onSwiper: (swiper) => console.log(swiper),
   onSlideChange: () => console.log('slide change'),
 };
+
 const OurTeam =() => {
+  
+  const slideno= function(){
+    if(window.innerWidth>=850){
+      return 3;
+    }else if(window.innerWidth>=580){
+      return 2;
+
+    }else{
+      return 1;
+    }
+  }
 
     const  profile = [
         {
@@ -83,12 +95,14 @@ const OurTeam =() => {
 <img src={Rlogo}/>
       </div>
       <div className='flex items-center justify-center mx-0'>
-        <p className='lg:w-2/4 w-5/6 text-center m-10 text-[#5F6368] text-[25px] font-Lato'>Meet the incredible GDSC team - a synergy of coding brilliance, design prowess, strategic minds, and innovation wizards. Together, they propel the boundaries of technology.</p>
+        <p className='sm:text-[24px] text-[16px] font-Lato  text-[#5F6368] self-center mt-[44px]'>Meet the incredible GDSC team - a synergy of coding brilliance, design prowess, strategic minds, and innovation wizards. Together, they propel the boundaries of technology.</p>
       </div>
+      <br/>
+      <br/>
       
       <Swiper
   spaceBetween={50}
-  slidesPerView={3}
+  slidesPerView={slideno()}
   slidesPerColumn={2} // Set the number of rows
   onSlideChange={() => console.log('slide change')}
   onSwiper={(swiper) => console.log(swiper)}
@@ -96,7 +110,7 @@ const OurTeam =() => {
   {profiles.map((person, index) => (<>
     <SwiperSlide key={index}>
       <div>
-        <img className='m-auto' src={`${person.imageurl}`} alt={person.name} />
+        <img className='m-auto md:h-[300px] md:w-[300px] h-[225px] w-[225px] object-cover rounded-full' src={`${person.imageurl}`} alt={person.name} />
         <h2 className='text-center text-[32px] font-Patrick leading-[48px]'>{person.name}</h2>
         <p className='text-center text-[20px] font-Lato leading-[30px]'>{person.team}</p>
       </div>

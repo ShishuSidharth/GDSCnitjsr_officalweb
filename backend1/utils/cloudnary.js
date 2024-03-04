@@ -1,11 +1,11 @@
-import { v2 as cloudinary } from "cloudinary";
+const cloudinary=require("cloudinary").v2
 // otenv"
 // dotenv.config()
-          
+require('dotenv').config({path:'../.env'});        
 cloudinary.config({ 
-  cloud_name: 'dijgjfbjt', 
-  api_key: '731835933899935', 
-  api_secret: 'TjqVL3LomnHV7LBxd-WgMQ9ToOE'
+  cloud_name: process.env.cLOUD_NAME, 
+  api_key: process.env.API_KEY, 
+  api_secret: process.env.API_SECRET
 });
 
 
@@ -24,7 +24,7 @@ cloudinary.config({
 //     return null
 //   }
 // }
-    export defaultcloudinary
+    module.exports=cloudinary
 
 
 

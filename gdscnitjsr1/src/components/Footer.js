@@ -5,7 +5,7 @@ import bracket from '../assets/bracket.png';
 function Footer() {
   return (
     <div className='bg-gray-200 h-[40vh] text-gray-600 font-lato t font-normal '>
-      <div className='flex justify-around'>
+      <div className='flex justify-around md:flex-row flex-col'>
         <div className=''>
           <div className='flex justify-center mt-10'>
             <div>
@@ -29,26 +29,26 @@ function Footer() {
           </div>
         </div>
         <div className='mt-5'>
-          <div className='flex justify-between mt-10'>
-            <div>
-              <Link to='about' spy={true} smooth={true} duration={500}>
+          <div className='flex  justify-center '>
+            <div className='m-[20px] flex flex-col justify-between'>
+              <Link className="mt-[20px]" to='about' spy={true} smooth={true} duration={500}>
                 <h2>About Us</h2>
               </Link>
-              <Link to='events' spy={true} smooth={true} duration={500}>
+              <Link className="mt-[20px]" to='events' spy={true} smooth={true} duration={500}>
                 <h2>Events</h2>
               </Link>
-              <Link to='our-team' spy={true} smooth={true} duration={500}>
+              <Link className="mt-[20px]" to='our-team' spy={true} smooth={true} duration={500}>
                 <h2>Our Team</h2>
               </Link>
             </div>
-            <div className='ml-10 '>
-              <Link to='socials' spy={true} smooth={true} duration={500}>
+            <div className='m-[20px] flex flex-col justify-between'>
+              <Link className="mt-[20px]" to='socials' spy={true} smooth={true} duration={500}>
                 <h2>Socials</h2>
               </Link>
-              <Link to='gdsc-nitjsr' spy={true} smooth={true} duration={500}>
-                <h2>GDSC NITJSR Chapter</h2>
+              <Link className="mt-[20px]" to='gdsc-nitjsr' spy={true} smooth={true} duration={500}>
+                <h2>GDSC NITJSR</h2>
               </Link>
-              <Link to='about-gdsc' spy={true} smooth={true} duration={500}>
+              <Link className="mt-[20px]" to='about-gdsc' spy={true} smooth={true} duration={500}>
                 <h2>About GDSC</h2>
               </Link>
             </div>

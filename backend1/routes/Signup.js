@@ -3,13 +3,15 @@ const router = express.Router();
 const Admin = require("../models/Admin");
 const randomstring = require('randomstring');
 const nodemailer = require('nodemailer');
+require('dotenv').config({path:'../.env'});
 // const 
+require('dotenv').config({path:'../.env'});
 // const dotenv = require("dotenv");
 const bcrypt = require("bcrypt");
 const  { Resend } = require("resend");
 // const dotenv = require("dotenv");
 require("dotenv").config();
-const resend = new Resend('re_cnF6wn2P_47cfwydMCz4QWm1NR6j1vo1k');
+const resend = new Resend(process.env.RESEND_KEY);
 // var transporter = nodemailer.createTransport({
 //           service: 'gmail',
 //           host: 'smtp.gmail.com',
