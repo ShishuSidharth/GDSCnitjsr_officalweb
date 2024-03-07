@@ -87,7 +87,7 @@ const Addevents = () => {
       }
     );
 
-    // console.log(response);
+    console.log(response);
     if (!response.data.success) {
       setres(response.data);
       //alert("error");
