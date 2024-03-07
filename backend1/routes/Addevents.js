@@ -25,7 +25,7 @@ router.post('/addevents', async (req, res) => {
         });
         res.json({ success: true ,thumbnailurl:result.secure_url});
       } catch (e) {
-        res.json({ success: false , message : "Internal Server Error" });
+        res.json({ success: false , message : e });
         console.log(e)
       }
   });
