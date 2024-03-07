@@ -12,7 +12,7 @@ router.post('/addevents', async (req, res) => {
         folder:"products",
       })
 
-        Event.create({
+       await Event.create({
           title: title,
           category: category,
           date: date,
