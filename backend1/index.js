@@ -16,7 +16,7 @@ const app = express();
 app.use(
   cors({
 
-    origin: "*",
+    origin: "https://gdscfrontend-two.vercel.app",
 
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
    
