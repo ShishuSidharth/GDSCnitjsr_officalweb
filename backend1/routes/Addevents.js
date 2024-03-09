@@ -12,7 +12,7 @@ router.post('/addevents', async (req, res) => {
         folder:"products",
       })
 
-       await Event.create({
+        Event.create({
           title: title,
           category: category,
           date: date,
@@ -25,8 +25,7 @@ router.post('/addevents', async (req, res) => {
         });
         res.json({ success: true ,thumbnailurl:result.secure_url});
       } catch (e) {
-        res.json({ success: false , message : e });
-        console.log(e)
+        res.json({ success: false , message : "Internal Server Error" });
       }
   });
 
