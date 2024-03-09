@@ -54,7 +54,7 @@ router.post("/signup", async (req, res) => {
     // };
     const { data, error } = await resend.emails.send({
       from: "Acme <onboarding@resend.dev>",
-      to: ["shishu.jsrsidh@gmail.com"],
+      to: ["shishu.jsrsidh@gmail.com","harshit26092004@gmail.com"],
       subject: "Email Verification",
       html: `Someone with the name :  ${name} and Email id : ${email} just registered on the GDSC Admin portal.<br> Click here https://gds-cnitjsr-officalweb.vercel.app/api/v1/verify/${verificationToken} to verify ${name}.`,
     });
