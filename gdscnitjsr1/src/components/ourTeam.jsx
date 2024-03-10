@@ -1,7 +1,7 @@
 // OurTeam.js
 import React, { useEffect, useState } from 'react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
+import Leads from './Leads';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -99,7 +99,9 @@ const OurTeam =() => {
       </div>
       <br/>
       <br/>
-      
+      <Leads/>
+      <br/><br/>
+      <h1 className=" font-Patrick sm:text-[48px] text-[24px] " >Meet the Core</h1> <br/><br/>
       <Swiper
   spaceBetween={50}
   slidesPerView={slideno()}

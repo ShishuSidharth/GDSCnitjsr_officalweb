@@ -7,6 +7,7 @@ import Socials from './Socials';
 import Footer from './Footer';
 import OurTeam from './ourTeam';
 import '../App.css'
+
 const home = () => {
   return (
   <>
@@ -16,6 +17,7 @@ const home = () => {
     <Hero />
     <br/><br/><br/>
     <About /><br/><br/><br/>
+    
     <OurTeam /><br/><br/><br/>
     <EventsComponent />
     <br/><br/><br/>

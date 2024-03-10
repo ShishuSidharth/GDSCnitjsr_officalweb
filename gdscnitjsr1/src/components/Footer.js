@@ -56,7 +56,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className='text-center mt-5 mb-5 bg-gray-200 '>
+      <div className='text-center mt-4 mb-5 bg-gray-200 '>
         <p>Made with ❤️ by GDSC NIT JSR </p>
         <p>Copyright ©2024, All rights reserved.</p>
       </div>
