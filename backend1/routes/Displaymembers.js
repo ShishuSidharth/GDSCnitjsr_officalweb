@@ -1,16 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
-const Member = require("../models/model")
-router.get('/displaymembers', async (req, res) => {
-    // let { title,category,date,startTime,endTime,description,thumnail } = req.body;
-    // //email = email.toLowerCase()
-    try {
-       const response = await Member.find({})
-        res.json(response);
-      } catch (e) {
-        res.json({ success: false , message : "Internal Server Error" });
-      }
-  });
+const Member = require("../models/model");
 
-  module.exports = router;
+router.get('/displaymembers', async (req, res) => {
+    try {
+        // Fetching all members from the database
+        const members = await Member.find({});
+
+        // Sorting the members based on the 'createdat' field in ascending order
+        const sortedMembers = members.sort((a, b) => a.createdat - b.createdat);
+
+        res.json(sortedMembers);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Internal Server Error" });
+    }
+});
+
+module.exports = router;
