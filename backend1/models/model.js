@@ -27,11 +27,15 @@ const schema = new mongoose.Schema({
     },
   
     profilePhoto: {
-      type: String, // Assuming the profile photo is stored as a URL or file path
+      type: String, 
     },
     imageurl: {
-      type: String, // Assuming the profile photo is stored as a URL or file path
+      type: String, 
     },
+    createdat: {
+      type: Date,
+      default: Date.now
+    }
   });
   
 const model = mongoose.model("model", schema);
