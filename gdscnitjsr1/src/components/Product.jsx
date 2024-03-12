@@ -1,6 +1,8 @@
 import React from "react";
 // import './index.css'
+
 export default function Product(props) {
+
   return (
     <div className="card">
       <div className="product-container">
@@ -14,10 +16,10 @@ export default function Product(props) {
       </div>
       <h4>DATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TIME</h4>
       <h3>{props.name1}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.name2}</h3>
-
+{console.log(props.description)}
       
       <p>
-        <button style={{ backgroundColor: props.clr }}>Learn More</button>
+        <button style={{ backgroundColor: props.clr }}><a href={`${props.description}`}>Learn More</a></button>
       </p>
     </div>
   );
