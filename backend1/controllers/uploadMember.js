@@ -60,13 +60,13 @@ const registerController = async (req, res) => {
     const {email}=req.body;
     const user=await Admin.findOne({email})
 
-  if(user && user.verified){
-    res.json({success:true,msg:"loggined"})
-    }
-    else{
-      //
-      return res.json({success:false,msg:"please login"})
-    }
+  // if(user && user.verified){
+  //   res.json({success:true,msg:"loggined"})
+  //   }
+  //   else{
+  //     //
+  //     return res.json({success:false,msg:"please login"})
+  //   }
   }
 module.exports = {
     registerController,authenticate

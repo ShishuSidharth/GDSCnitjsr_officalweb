@@ -22,7 +22,7 @@ export const Addmembers = () => {
 
     if (!value) {
       setauth(false);
-      navigate("/login");
+      // navigate("/login");
     } else {
       const ans = await axios.post(
         "https://gds-cnitjsr-officalweb.vercel.app/api/user/authenticate",
