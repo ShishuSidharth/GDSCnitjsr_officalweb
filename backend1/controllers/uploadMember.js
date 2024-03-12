@@ -32,7 +32,7 @@ const registerController = async (req, res) => {
             user.name = name;
             user.branch = branch;
             user.teamType = teamType;
-            if(createdat)user.createdat = createdat ;
+            // if(createdat)user.createdat = createdat ;
             
             user.team = team;
             user.year = year;
