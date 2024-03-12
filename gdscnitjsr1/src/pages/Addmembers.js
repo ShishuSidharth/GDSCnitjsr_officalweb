@@ -39,8 +39,8 @@ export const Addmembers = () => {
       //   setauth(false);
       //   navigate("/login");
       // }
-    }
-  };
+    };
+  // };
   useEffect(() => {
     authenticate();
   }, [localStorage.getItem("email")]);
