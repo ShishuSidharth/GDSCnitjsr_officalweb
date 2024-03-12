@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "./Spinner";
-import Navbar from "../components/navbar";
+import Navbar1 from "../components/newnavbar";
+
 import { useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
 export const Addmembers = () => {
@@ -126,9 +127,9 @@ export const Addmembers = () => {
   };
   return (
     <>
-      <Navbar />
-      {loading && <Spinner />}
       
+      {loading && <Spinner />}
+      <Navbar1/>
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="card">

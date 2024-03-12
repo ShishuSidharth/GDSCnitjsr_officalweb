@@ -1,20 +1,14 @@
 // Navbar.js
 
 import React, { useEffect, useState } from "react";
-import { Link as ScrollLink } from "react-scroll";
-import { Link as AnchorLink, NavLink } from "react-router-dom";
+
+import { Link as AnchorLink, Link, NavLink } from "react-router-dom";
 import LOGO from "../img/GDSC Logo chapter lockup template 1.svg";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button } from "react-scroll";
-function Navbar() {
-  let Links = [
-    { name: "About Us", link: "about" },
-    { name: "Our Team", link: "our-team" },
-    { name: "Events", link: "events" },
-    { name: "Socials", link: "socials" },
-    { name: "Join Us", link: "join-us", url: "https://gdsc.community.dev/national-institute-of-technology-nit-jamshedpur/" },
-  ];
+function Navbar1() {
+
 
   let [open, setOpen] = useState(false);
 
@@ -51,11 +45,11 @@ const [islogin,setlogin]=useState(false)
     authenticate();
   }, [localStorage.getItem("email")]);
 
+const handlelogout = ()=>{
+   localStorage.clear("email")
+   navigate("/login")
+}
 
-  const handlelogout = ()=>{
-    localStorage.clear("email")
-    window.location.reload();
- }
 
 
 
@@ -81,57 +75,26 @@ const [islogin,setlogin]=useState(false)
             open ? "top-20 " : "top-[-490px]"
           }`}
         >
-          {Links.map((link) => (
-            <li key={link.name} className="md:ml-8 text-xl md:my-0 my-7">
-              {link.url ? (
-                <AnchorLink
-                  to={link.url}
-                  className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
-                >
-                  {link.name}
-                </AnchorLink>
-              ) : (
-                <ScrollLink
-                  to={link.link}
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  onClick={handleLinkClick}
-                  className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
-                >
-                  {link.name}
-                </ScrollLink>
-              )}
-              
-            </li>
-            
-          ))}
-       {!islogin && (
-  <>
-    <li className="md:ml-8 text-xl md:my-0 my-7">
+         <li className="md:ml-8 text-xl md:my-0 my-7">
       <NavLink
         className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
-        to="/signup"
+        to="/addmember"
         onClick={handleLinkClick}
       >
-        Register
+        Add Members
       </NavLink>
     </li>
     <li className="md:ml-8 text-xl md:my-0 my-7">
       <NavLink
         className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
-        to="/login"
+        to="/addevents"
         onClick={handleLinkClick}
       >
-        Login
+        Add Events
       </NavLink>
     </li>
-  </>
-)}
-{
-  islogin && (
-    <>
-      <li className="md:ml-8 text-xl md:my-0 my-7">
+       
+    <li className="md:ml-8 text-xl md:my-0 my-7">
       <Button
         className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
         
@@ -140,15 +103,10 @@ const [islogin,setlogin]=useState(false)
         Logout
       </Button>
     </li>
-    </>
-  )
-}
-
-      
         </ul>
       </div>
     </div>
   );
 }
 
-export default Navbar;
+export default Navbar1;

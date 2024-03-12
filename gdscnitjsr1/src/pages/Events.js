@@ -4,6 +4,7 @@ import Navbar from "../components/navbar";
 import { useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
 import Spinner from "./Spinner";
+import Navbar1 from "../components/newnavbar";
 const Addevents = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -104,8 +105,9 @@ const Addevents = () => {
 
   return (
     <>
-      <Navbar />
+     
       {loading && <Spinner />}
+      <Navbar1/>
       <section className="bg-gray-50 dark:bg-gray-900 min-h-screen flex items-center justify-center " style={{ opacity: loading ? 0.3 : 1 }}>
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 max-w-md w-full">
           <h1 className="text-2xl font-bold text-black dark:text-black mb-6">
