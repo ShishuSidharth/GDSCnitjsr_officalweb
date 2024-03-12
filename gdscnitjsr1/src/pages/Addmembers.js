@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "./Spinner";
-import Navbar from "../components/navbar";
+import Navbar1 from "../components/newnavbar";
+
 import { useNavigate } from "react-router-dom";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 
 export const Addmembers = () => {
   const navigate = useNavigate();
@@ -26,22 +27,22 @@ export const Addmembers = () => {
     //   setauth(false);
     //   // navigate("/login");
     // } else {
-      const ans = await axios.post(
-        "https://gds-cnitjsr-officalweb.vercel.app/api/user/authenticate",
-        {
-          email: value,
-        }
-      );
+    const ans = await axios.post(
+      "https://gds-cnitjsr-officalweb.vercel.app/api/user/authenticate",
+      {
+        email: value,
+      }
+    );
 
-      // if (ans && ans.data.success) {
-        setauth(true);
-        console.log(value);
-        console.log(ans);
-      // } else {
-      //   setauth(false);
-      //   navigate("/login");
-      // }
-    };
+    // if (ans && ans.data.success) {
+    setauth(true);
+    console.log(value);
+    console.log(ans);
+    // } else {
+    //   setauth(false);
+    //   navigate("/login");
+    // }
+  };
 
   // };
   useEffect(() => {
@@ -101,7 +102,7 @@ export const Addmembers = () => {
       formData.append("year", year);
       formData.append("branch", branch);
       formData.append("profilePhoto", profilePhoto);
-      formData.append('image', image);
+      formData.append("image", image);
 
       const res = await axios.post(
         "https://gds-cnitjsr-officalweb.vercel.app/api/user/addmember",
@@ -129,7 +130,7 @@ export const Addmembers = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar1 />
       {loading && <Spinner />}
       <div className="row justify-content-center">
         <div className="col-md-6">
@@ -241,12 +242,15 @@ export const Addmembers = () => {
                   {loading ? "Adding..." : "ADD MEMBER"}
                 </button>
               </form>
-              {resp && resp.data && resp.data.newUser && resp.data.newUser.imageurl && (
-                <>
-                  <img src={resp.data.newUser.imageurl} alt="User" />
-                  {console.log(resp.data.newUser.imageurl)}
-                </>
-              )}
+              {resp &&
+                resp.data &&
+                resp.data.newUser &&
+                resp.data.newUser.imageurl && (
+                  <>
+                    <img src={resp.data.newUser.imageurl} alt="User" />
+                    {console.log(resp.data.newUser.imageurl)}
+                  </>
+                )}
             </div>
           </div>
         </div>

@@ -42,6 +42,7 @@ const options = { year: 'numeric', month: 'short', day: 'numeric' };
       description1={item.title}
       description2={item.category}
       clr = {item.color}
+      description={item.description}
     />
   ));
   const fetchdata = async ()=>{
