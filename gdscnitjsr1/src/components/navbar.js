@@ -140,6 +140,24 @@ const [islogin,setlogin]=useState(false)
         Logout
       </Button>
     </li>
+    <li className="md:ml-8 text-xl md:my-0 my-7">
+      <NavLink
+        className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
+        to="/addmember"
+        onClick={handleLinkClick}
+      >
+        Add Members
+      </NavLink>
+    </li>
+    <li className="md:ml-8 text-xl md:my-0 my-7">
+      <NavLink
+        className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
+        to="/addevents"
+        onClick={handleLinkClick}
+      >
+        Add Events
+      </NavLink>
+    </li>
     </>
   )
 }
