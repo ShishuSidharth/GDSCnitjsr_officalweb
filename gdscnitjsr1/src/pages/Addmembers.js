@@ -79,10 +79,10 @@ export const Addmembers = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
      setLoading(true)
-    if (auth === false) {
-      alert("not authenticated");
-      setLoading(false)
-      navigate("/login");
+    // if (auth === false) {
+    //   alert("not authenticated");
+    //   setLoading(false)
+    //   navigate("/login");
     }
     console.log(profilePhoto);
     try {

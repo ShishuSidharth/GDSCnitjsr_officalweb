@@ -61,7 +61,7 @@ const registerController = async (req, res) => {
     const user=await Admin.findOne({email})
 
   // if(user && user.verified){
-  //   res.json({success:true,msg:"loggined"})
+    res.json({success:true,msg:"loggined"})
   //   }
   //   else{
   //     //
