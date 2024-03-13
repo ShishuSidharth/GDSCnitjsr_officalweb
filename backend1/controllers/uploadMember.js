@@ -4,7 +4,7 @@ const cloudinary = require('../utils/cloudnary.js');
 
 const registerController = async (req, res) => {
     try {
-        const { name, branch, teamType, team, year, image, registration , createdat } = req.body;
+        const { name, branch, teamType, team, year, image, registration  } = req.body;
 
         if (!name) {
             return res.status(400).send({ msg: "Name is required!" });
