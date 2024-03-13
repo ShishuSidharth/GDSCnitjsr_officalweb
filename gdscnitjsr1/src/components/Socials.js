@@ -35,7 +35,7 @@ function Socials() {
         </div>
  
  <div className='flex justify-center mt-[-30px]'>
-    <p className=' sm:text-[24px] text-[16px] font-Lato  text-[#5F6368] self-center mt-[44px]'>
+    <p className=' sm:text-[24px] text-[16px] font-Lato z-[99999] text-[#5F6368] self-center mt-[44px]'>
         Let’s stay in touch so that you don’t miss out on exciting updates.
        
           

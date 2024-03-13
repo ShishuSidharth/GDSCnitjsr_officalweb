@@ -101,7 +101,7 @@ const OurTeam =() => {
       <br/>
       <Leads/>
       <br/><br/>
-      <h1 className=" font-Patrick sm:text-[48px] text-[24px] " >Meet the Core</h1> <br/><br/>
+      <h1 className=" font-Patrick sm:text-[48px] text-[24px] text-decoration-line: underline" >Meet the Core</h1> <br/><br/>
       <Swiper
   spaceBetween={50}
   slidesPerView={slideno()}

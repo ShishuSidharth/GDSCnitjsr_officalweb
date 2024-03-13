@@ -64,7 +64,7 @@ const options = { year: 'numeric', month: 'short', day: 'numeric' };
         <img src={Rlogo}/>
         
                 </div>
-      <p className="sm:text-[24px] text-[16px] font-Lato  text-[#5F6368] self-center mt-[44px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      <p className="sm:text-[24px] text-[16px] font-Lato  text-[#5F6368] self-center mt-[44px]">Here are our upcoming and some past events make sure to <i>RSVP</i> to be a part of these exciting oppurtunities.</p>
       <br/>
       <Carousel showDots={true} responsive={responsive}>
         {product}
