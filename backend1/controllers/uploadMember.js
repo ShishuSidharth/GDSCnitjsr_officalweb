@@ -80,13 +80,13 @@ const authenticate = async (req, res) => {
     const { email } = req.body;
     const user = await Admin.findOne({ email });
 
-    // if(user && user.verified){
+    if(user && user.verified){
     res.json({ success: true, msg: "Logged in" });
-    //   }
-    //   else{
-    //     //
-    //     return res.json({success:false,msg:"please login"})
-    //   }
+      }
+      else{
+        //
+        return res.json({success:false,msg:"please login"})
+      }
 };
 
 module.exports = {

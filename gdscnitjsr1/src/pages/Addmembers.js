@@ -23,10 +23,10 @@ export const Addmembers = () => {
   const authenticate = async () => {
     const value = localStorage.getItem("email");
 
-    // if (!value) {
-    //   setauth(false);
-    //   // navigate("/login");
-    // } else {
+    if (!value) {
+      setauth(false);
+      navigate("/login");
+    } else {
     const ans = await axios.post(
       "https://gds-cnitjsr-officalweb.vercel.app/api/user/authenticate",
       {
@@ -34,17 +34,17 @@ export const Addmembers = () => {
       }
     );
 
-    // if (ans && ans.data.success) {
+    if (ans && ans.data.success) {
     setauth(true);
     console.log(value);
     console.log(ans);
-    // } else {
-    //   setauth(false);
-    //   navigate("/login");
-    // }
+    } else {
+      setauth(false);
+      navigate("/login");
+    }
   };
 
-  // };
+  };
   useEffect(() => {
     authenticate();
   }, [localStorage.getItem("email")]);
@@ -88,11 +88,11 @@ export const Addmembers = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // if (auth === false) {
-    //   alert("not authenticated");
-    //   setLoading(false)
-    //   navigate("/login");
-    // }
+    if (auth === false) {
+      alert("not authenticated");
+      setLoading(false)
+      navigate("/login");
+    }
     try {
       const formData = new FormData();
       formData.append("name", name);
