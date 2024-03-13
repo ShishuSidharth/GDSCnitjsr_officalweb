@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const Admin = require("../models/Admin")
 const Model = require("../models/model")
-//hello
+
 router.post("/delete", async (req, res) => {
     const { registration } = req.body;
   console.log(registration)
