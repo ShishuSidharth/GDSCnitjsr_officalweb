@@ -199,7 +199,7 @@ const Addevents = () => {
                 onChange={handleChange}
                 rows="7"
                 className="form-textarea mt-1 block w-full border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                placeholder="Description..."
+                placeholder="LINK"
               ></textarea>
             </div>
             <div>
