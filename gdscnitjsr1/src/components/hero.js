@@ -20,7 +20,7 @@ function Hero() {
         </div>
         </div>
         <div className='sm:w-[245.1px] sm:h-[71.21px] w-[50%] h-fit p-[10px] bg-[#4285F4] rounded-[20px] text-white sm:text-[24px] text-[16px] flex items-center justify-center mt-10'>
-              <a href='https://gdsc.community.dev/national-institute-of-technology-nit-jamshedpur/'>Join the Chapter</a> 
+              <a href='https://gdsc.community.dev/national-institute-of-technology-nit-jamshedpur/' target="_blank" rel="noopener noreferrer">Join the Chapter</a> 
             </div>
         
       </div>

@@ -53,7 +53,7 @@ function Socials() {
 
 
 <div className='relative'>
-  <a href="https://github.com/Vishal1092003">
+  <a href="https://github.com/Vishal1092003" target="_blank" rel="noopener noreferrer">
     <img
       src={github}
       className='w-[49.56px] h-[49.34px]'
@@ -63,7 +63,7 @@ function Socials() {
 </div>
 
         <div className='relative' >
-        <a href='https://www.instagram.com/gdsc_nitjsr/'>
+        <a href='https://www.instagram.com/gdsc_nitjsr/' target="_blank" rel="noopener noreferrer">
            <img src={instagram} className='w-[49.56px] h-[49.34px] ml-10'/>
              
         </a>
@@ -72,7 +72,7 @@ function Socials() {
 
         <div className='relative'>
 
-        <a href='https://www.linkedin.com/company/gdsc-nit-jamshedpur/'>
+        <a href='https://www.linkedin.com/company/gdsc-nit-jamshedpur/' target="_blank" rel="noopener noreferrer">
                <img src={linkedIn}  className='w-[49.56px] h-[49.34px] ml-10'/>     
         </a>
         </div>
