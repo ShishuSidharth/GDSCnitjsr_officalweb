@@ -28,7 +28,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className='mt-5'>
+        <div className='mt-4'>
           <div className='flex  justify-center '>
             <div className='m-[20px] flex flex-col justify-between'>
               <Link className="mt-[20px]" to='about' spy={true} smooth={true} duration={500}>
