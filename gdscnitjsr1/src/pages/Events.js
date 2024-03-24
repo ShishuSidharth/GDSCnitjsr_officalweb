@@ -191,7 +191,7 @@ const Addevents = () => {
                 htmlFor="description"
                 className="block text-sm font-medium"
               >
-                Description
+                Link For Event
               </label>
               <textarea
                 id="description"
