@@ -20,7 +20,7 @@ export default function Product(props) {
 {console.log(props.description)}
       
       <p>
-        <button style={{ backgroundColor: props.clr, margin:'20px'}}><a href={`${props.description}`}>Learn More</a></button>
+      <a href={`${props.description}`}><button style={{ backgroundColor: props.clr, margin:'20px'}}>Learn More</button></a>
       </p>
     </div>
   );
