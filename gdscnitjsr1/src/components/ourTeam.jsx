@@ -1,33 +1,18 @@
 // OurTeam.js
 import React, { useEffect, useState } from 'react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import Leads from './Leads';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-// import { FreeMode, Pagination } from 'swiper/modules';
+
 import Llogo from '../img/gdsc bracket left.svg'
 import Rlogo from '../img/gdsc bracket right.svg'
 import axios from 'axios'
-// import { Swiper, SwiperSlide } from 'swiper/react';
-
-// // Import Swiper styles
-// import 'swiper/css';
-const swiperOptions = {
-  modules: [Navigation, Pagination, Scrollbar, A11y],
-  spaceBetween: 50,
-  slidesPerView: 3,
-  navigation: true,
-  pagination: { clickable: true },
-  scrollbar: { draggable: true },
-  onSwiper: (swiper) => console.log(swiper),
-  onSlideChange: () => console.log('slide change'),
-};
 
 const OurTeam =() => {
   
@@ -102,10 +87,19 @@ const OurTeam =() => {
       <Leads/>
       <br/><br/>
       <h1 className=" font-Patrick sm:text-[48px] text-[24px] text-decoration-line: underline" >Meet the Core</h1> <br/><br/>
-      <Swiper
+      <Swiper className='md:h-[440px]'
   spaceBetween={50}
   slidesPerView={slideno()}
-  slidesPerColumn={2} // Set the number of rows
+  navigation={true}
+  pagination={{
+    clickable: true,
+  }}
+  autoplay={{
+    delay: 2500,
+    disableOnInteraction: false,
+  }}
+  modules={[Pagination, Navigation, Autoplay]}
+  
   onSlideChange={() => console.log('slide change')}
   onSwiper={(swiper) => console.log(swiper)}
 >

@@ -61,12 +61,12 @@ const [islogin,setlogin]=useState(false)
 
 
   return (
-    <div className="shadow-md w-full relative top-0 left-0 z-[1000000] Navbar">
-      <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7 z-[10000]">
+    <div className="shadow-md w-full relative top-0 left-0 z-[99999999 h-[20px]] Navbar">
+      <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7 z-[10000]">
         <div
           className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-gray-800"
         >
-          <img src={LOGO} className="w-[70%] sm:w-auto" alt="Logo" />
+          <img src={LOGO} className="w-[80%] sm:w-auto" alt="Logo" />
         </div>
 
         <div
@@ -108,7 +108,7 @@ const [islogin,setlogin]=useState(false)
           ))}
        {!islogin && (
   <>
-    <li className="md:ml-8 text-xl md:my-0 my-7">
+    {/* <li className="md:ml-8 text-xl md:my-0 my-7">
       <NavLink
         className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
         to="/signup"
@@ -116,7 +116,7 @@ const [islogin,setlogin]=useState(false)
       >
         Register
       </NavLink>
-    </li>
+    </li> */}
     <li className="md:ml-8 text-xl md:my-0 my-7">
       <NavLink
         className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
