@@ -15,7 +15,7 @@ function Hero() {
             
         </div>
             
-        <div className="sm:w-[50%]  flex items-end">
+        <div className="sm:w-[50%] z-[2] flex items-end">
             <img src={HeroImage}/>
         </div>
         </div>

@@ -61,7 +61,7 @@ const [islogin,setlogin]=useState(false)
 
 
   return (
-    <div className="shadow-md w-full relative top-0 left-0 z-[99999999 h-[20px]] Navbar">
+    <div className="shadow-md w-full relative top-0 left-0 z-[3] h-[20px]] Navbar">
       <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7 z-[10000]">
         <div
           className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-gray-800"

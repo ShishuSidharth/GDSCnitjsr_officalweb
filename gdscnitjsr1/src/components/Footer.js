@@ -4,7 +4,7 @@ import bracket from '../assets/bracket.png';
 
 function Footer() {
   return (
-    <div className='bg-gray-200 h-[40vh] text-gray-600 font-lato t font-normal '>
+    <div className='bg-gray-200 md:h-[40vh] h-[fit] text-gray-600 font-lato t font-normal '>
       <div className='flex justify-around md:flex-row flex-col'>
         <div className=''>
           <div className='flex justify-center mt-10'>
