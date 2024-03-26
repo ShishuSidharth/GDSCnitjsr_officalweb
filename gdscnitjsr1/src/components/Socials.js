@@ -53,7 +53,7 @@ function Socials() {
 
 
 <div className='relative'>
-  <a href="https://github.com/Vishal1092003" target="_blank" rel="noopener noreferrer">
+  <a href="https://github.com/GDSC-NIT-JSR" target="_blank" rel="noopener noreferrer">
     <img
       src={github}
       className='w-[49.56px] h-[49.34px]'
@@ -77,7 +77,7 @@ function Socials() {
         </a>
         </div>
         <div className='relative'>
-        <a href='https://github.com/Vishal1092003'>
+        <a href='mailto:gdsc.nitjsr@gmail.com'>
      
                        <img src={mail}  className='w-[49.56px] h-[49.34px] ml-10' />
 
