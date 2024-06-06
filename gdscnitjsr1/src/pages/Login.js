@@ -93,7 +93,7 @@ const Login = () => {
           <img
             src={"https://www.gdscnitjsr.in/static/media/GDSC%20Logo%20chapter%20lockup%20template%201.e5a0f6a4a3dde423bf40009cfda518cb.svg"}
             alt="Google Logo"
-            style={{ width: "320px", marginBottom: "16px" }}
+            style={{ width: "320px", marginBottom: "40px" }}
           />
         </Typography>
         
@@ -110,6 +110,7 @@ const Login = () => {
             autoFocus
             onChange={handleChange}
           />
+          <Typography> <small style={{color : "red"}}> *Use Institute Mail Id</small></Typography>
           <TextField
             variant="outlined"
             margin="normal"
