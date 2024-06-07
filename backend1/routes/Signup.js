@@ -11,7 +11,7 @@ const bcrypt = require("bcrypt");
 const  { Resend } = require("resend");
 // const dotenv = require("dotenv");
 require("dotenv").config();
-const resend = new Resend("re_FGdg8uNM_9iLbZFXLWoam77axkfu1fgsd");
+const resend = new Resend(process.env.RESEND_KEY);
 // var transporter = nodemailer.createTransport({
 //           service: 'gmail',
 //           host: 'smtp.gmail.com',
@@ -54,7 +54,7 @@ router.post("/signup", async (req, res) => {
     // };
     const { data, error } = await resend.emails.send({
       from: "Acme <onboarding@resend.dev>",
-      to: ["mayankraj7100@gmail.com"],
+      to: ["shishu.jsrsidh@gmail.com"],
       subject: "Email Verification",
       html: `Someone with the name :  ${name} and Email id : ${email} just registered on the GDSC Admin portal.<br> Click here https://gds-cnitjsr-officalweb.vercel.app/api/v1/verify/${verificationToken} to verify ${name}.`,
     });
