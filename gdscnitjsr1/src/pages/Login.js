@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import toast from "react-hot-toast";
-
+import logo from "../assets/gdscnitjsr_logo.svg"
 // Styled components using @mui/system styled utility
 const StyledContainer = styled(Container)({
   display: "flex",
@@ -91,7 +91,7 @@ const Login = () => {
       <StyledBox>
         <Typography style={{display : "flex" , justifyContent : "center" , alignItems : "center"}}>
           <img
-            src={"https://www.gdscnitjsr.in/static/media/GDSC%20Logo%20chapter%20lockup%20template%201.e5a0f6a4a3dde423bf40009cfda518cb.svg"}
+            src={logo}
             alt="Google Logo"
             style={{ width: "320px", marginBottom: "40px" }}
           />
