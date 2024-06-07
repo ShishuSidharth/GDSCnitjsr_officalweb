@@ -11,7 +11,7 @@ const bcrypt = require("bcrypt");
 const  { Resend } = require("resend");
 // const dotenv = require("dotenv");
 require("dotenv").config();
-const resend = new Resend(process.env.RESEND_KEY);
+const resend = new Resend("re_FGdg8uNM_9iLbZFXLWoam77axkfu1fgsd");
 // var transporter = nodemailer.createTransport({
 //           service: 'gmail',
 //           host: 'smtp.gmail.com',
