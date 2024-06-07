@@ -25,12 +25,23 @@ const schema = new mongoose.Schema({
       type: String,
       required: true,
     },
-  
     profilePhoto: {
       type: String, 
     },
     imageurl: {
       type: String, 
+    },
+    github: {
+      type: String,
+      required: true,
+    },
+    mail: {
+      type: String,
+      required: true,
+    },
+    linkedin: {
+      type: String,
+      required: true,
     },
     createdat: {
       type: Date,

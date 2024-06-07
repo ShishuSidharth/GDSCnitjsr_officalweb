@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "./Spinner";
 import Navbar1 from "../components/newnavbar";
-
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import "./Addmembers.css"; // Import the custom CSS file
 
 export const Addmembers = () => {
   const navigate = useNavigate();
@@ -19,6 +19,9 @@ export const Addmembers = () => {
   const [image, setImage] = useState();
   const [resp, setres] = useState();
   const [auth, setauth] = useState(false);
+  const [github, setgit] = useState("");
+  const [mail, setmail] = useState("");
+  const [linkedin, setlinked] = useState("");
 
   const authenticate = async () => {
     const value = localStorage.getItem("email");
@@ -27,24 +30,19 @@ export const Addmembers = () => {
       setauth(false);
       navigate("/login");
     } else {
-    const ans = await axios.post(
-      "https://gds-cnitjsr-officalweb.vercel.app/api/user/authenticate",
-      {
-        email: value,
-      }
-    );
+      const ans = await axios.post("https://gds-cnitjsr-officalweb.vercel.app/api/user/authenticate", { email: value });
 
-    if (ans && ans.data.success) {
-    setauth(true);
-    console.log(value);
-    console.log(ans);
-    } else {
-      setauth(false);
-      navigate("/login");
+      if (ans && ans.data.success) {
+        setauth(true);
+        console.log(value);
+        console.log(ans);
+      } else {
+        setauth(false);
+        navigate("/login");
+      }
     }
   };
 
-  };
   useEffect(() => {
     authenticate();
   }, [localStorage.getItem("email")]);
@@ -90,7 +88,7 @@ export const Addmembers = () => {
     setLoading(true);
     if (auth === false) {
       alert("not authenticated");
-      setLoading(false)
+      setLoading(false);
       navigate("/login");
     }
     try {
@@ -103,16 +101,15 @@ export const Addmembers = () => {
       formData.append("branch", branch);
       formData.append("profilePhoto", profilePhoto);
       formData.append("image", image);
+      formData.append("github", github);
+      formData.append("mail", mail);
+      formData.append("linkedin", linkedin);
 
-      const res = await axios.post(
-        "https://gds-cnitjsr-officalweb.vercel.app/api/user/addmember",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const res = await axios.post("https://gds-cnitjsr-officalweb.vercel.app/api/user/addmember", formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (res && res.data.success) {
         setres(res);
@@ -132,126 +129,165 @@ export const Addmembers = () => {
     <>
       <Navbar1 />
       {loading && <Spinner />}
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="card">
-            <div className="card-header">
-              <h1 className="text-center">Addmember</h1>
-            </div>
-            <div className="card-body">
-              <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                  <label htmlFor="name" className="form-label">
-                    NAME:
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={name}
-                    onChange={handleChangename}
-                    className="form-control"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="registration" className="form-label">
-                    Registration NO.:
-                  </label>
-                  <input
-                    type="text"
-                    id="registration"
-                    name="registration"
-                    value={registration}
-                    onChange={handleChangeregistraion}
-                    className="form-control"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="branch" className="form-label">
-                    Branch.:
-                  </label>
-                  <input
-                    type="text"
-                    id="branch"
-                    name="branch"
-                    value={branch}
-                    onChange={handleChangebranch}
-                    className="form-control"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="year" className="form-label">
-                    Year.:
-                  </label>
-                  <input
-                    type="text"
-                    id="year"
-                    name="year"
-                    value={year}
-                    onChange={handleChangeyear}
-                    className="form-control"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="team" className="form-label">
-                    Position.:
-                  </label>
-                  <input
-                    type="text"
-                    id="team"
-                    name="team"
-                    value={team}
-                    onChange={handleChangeteam}
-                    className="form-control"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="profilePhoto" className="form-label">
-                    Profile.:
-                  </label>
-                  <input
-                    type="file"
-                    id="profilePhoto"
-                    accept="image/*"
-                    name="profilePhoto"
-                    onChange={handleUploadImage}
-                    className="form-control"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="type" className="form-label">
-                    teamType:
-                  </label>
-                  <select
-                    id="role"
-                    name="role"
-                    value={teamType}
-                    onChange={handleChangeteamtype}
-                    className="form-select"
-                  >
-                    <option value="core team member">core team member</option>
-                    <option value="lead">lead</option>
-                  </select>
-                </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary bg-primary"
-                  disabled={loading}
+      <div className="container d-flex justify-content-center align-items-center min-vh-100">
+        <div className="form-container mb-5">
+          <div className="form-header">
+            <p className="fs-4">Add Member</p>
+          </div>
+          <div className="form-body">
+            <form onSubmit={handleSubmit} >
+              <div className="mb-3">
+                <label htmlFor="name" className="form-label">
+                  Name:
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  value={name}
+                  onChange={handleChangename}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="registration" className="form-label">
+                  Registration No.:
+                </label>
+                <input
+                  type="text"
+                  id="registration"
+                  name="registration"
+                  value={registration}
+                  onChange={handleChangeregistraion}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="branch" className="form-label">
+                  Branch:
+                </label>
+                <input
+                  type="text"
+                  id="branch"
+                  name="branch"
+                  value={branch}
+                  onChange={handleChangebranch}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="linkedin" className="form-label">
+                  LinkedIn URL:
+                </label>
+                <input
+                  type="url"
+                  id="linkedin"
+                  name="linkedin"
+                  value={linkedin}
+                  required
+                  onChange={(e) => {
+                    setlinked(e.target.value);
+                  }}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="github" className="form-label">
+                  GitHub URL:
+                </label>
+                <input
+                  type="url"
+                  id="github"
+                  name="github"
+                  required
+                  value={github}
+                  onChange={(e) => {
+                    setgit(e.target.value);
+                  }}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="mail" className="form-label">
+                  Email ID:
+                </label>
+                <input
+                  type="email"
+                  id="mail"
+                  name="mail"
+                  required
+                  value={mail}
+                  onChange={(e) => {
+                    setmail(e.target.value);
+                  }}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="year" className="form-label">
+                  Year:
+                </label>
+                <input
+                  type="text"
+                  id="year"
+                  name="year"
+                  value={year}
+                  onChange={handleChangeyear}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="team" className="form-label">
+                  Position:
+                </label>
+                <input
+                  type="text"
+                  id="team"
+                  name="team"
+                  value={team}
+                  onChange={handleChangeteam}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="profilePhoto" className="form-label">
+                  Profile Photo:
+                </label>
+                <input
+                  type="file"
+                  id="profilePhoto"
+                  accept="image/*"
+                  name="profilePhoto"
+                  onChange={handleUploadImage}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="teamType" className="form-label">
+                  Team Type:
+                </label>
+                <select
+                  id="teamType"
+                  name="teamType"
+                  value={teamType}
+                  onChange={handleChangeteamtype}
+                  className="form-select"
                 >
-                  {loading ? "Adding..." : "ADD MEMBER"}
-                </button>
-              </form>
-              {resp &&
-                resp.data &&
-                resp.data.newUser &&
-                resp.data.newUser.imageurl && (
-                  <>
-                    <img src={resp.data.newUser.imageurl} alt="User" />
-                    {console.log(resp.data.newUser.imageurl)}
-                  </>
-                )}
-            </div>
+                  <option value="core team member">Core Team Member</option>
+                  <option value="lead">Lead</option>
+                </select>
+              </div>
+              <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+                {loading ? "Adding..." : "Add Member"}
+              </button>
+            </form>
+            {resp && resp.data && resp.data.newUser && resp.data.newUser.imageurl && (
+              <>
+                <img src={resp.data.newUser.imageurl} alt="User" className="img-fluid mt-3" />
+                {console.log(resp.data.newUser.imageurl)}
+              </>
+            )}
           </div>
         </div>
       </div>
