@@ -88,7 +88,7 @@ const Login = () => {
 
   return (
     <StyledContainer component="main" maxWidth="xs">
-      <StyledBox>
+      <StyledBox style={{backgroundColor : "#f8f9fa" , border : "1px solid #dee2e6"}}>
         <Typography style={{display : "flex" , justifyContent : "center" , alignItems : "center"}}>
           <img
             src={logo}
