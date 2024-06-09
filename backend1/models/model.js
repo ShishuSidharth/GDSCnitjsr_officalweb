@@ -4,50 +4,62 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-    name: {
-      type: String,
-      required: true,
-    },
-    branch: {
-      type: String,
-      required: true,
-    },
-    teamType: {
-      type: String,
-      enum: ['lead', 'core team member'],
-      required: true,
-    },
-    team: {
-      type: String,
-      required: true,
-    },
-    year: {
-      type: String,
-      required: true,
-    },
-    profilePhoto: {
-      type: String, 
-    },
-    imageurl: {
-      type: String, 
-    },
-    github: {
-      type: String,
-      required: true,
-    },
-    mail: {
-      type: String,
-      required: true,
-    },
-    linkedin: {
-      type: String,
-      required: true,
-    },
-    createdat: {
-      type: Date,
-      default: Date.now
-    }
-  });
-  
+  name: {
+    type: String,
+    required: true,
+  },
+  branch: {
+    type: String,
+    required: true,
+  },
+  teamType: {
+    type: String,
+    enum: ["lead", "core team member"],
+    required: true,
+  },
+  team: {
+    type: String,
+    required: true,
+  },
+  year: {
+    type: String,
+    required: true,
+  },
+  profilePhoto: {
+    type: String,
+  },
+  imageurl: {
+    type: String,
+  },
+  github: {
+    type: String,
+    required: false,
+  },
+  mail: {
+    type: String,
+    required: false,
+  },
+  linkedin: {
+    type: String,
+    required: false,
+  },
+  facebook: {
+    type: String,
+    required: false,
+  },
+  instagram: {
+    type: String,
+    required: false,
+  },
+  x: {
+    type: String,
+    required: false,
+  },
+  createdat: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
 const model = mongoose.model("model", schema);
 module.exports = model;

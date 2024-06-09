@@ -1,13 +1,55 @@
 import React, { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
-import Spinner from "./Spinner"
-import toast from 'react-hot-toast';
+import { Link, useNavigate } from "react-router-dom";
+import {
+  TextField,
+  Button,
+  Container,
+  Typography,
+  Box,
+  CircularProgress,
+} from "@mui/material";
+import { styled } from "@mui/system";
+import toast from "react-hot-toast";
+import logo from "../assets/gdscnitjsr_logo.svg";
+
+const StyledContainer = styled(Container)({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  minHeight: "100vh",
+});
+
+const StyledBox = styled(Box)({
+  padding: "32px",
+  backgroundColor: "white",
+  borderRadius: "8px",
+  boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.1)",
+});
+
+const StyledForm = styled("form")({
+  width: "100%",
+  marginTop: "16px",
+});
+
+const StyledButton = styled(Button)({
+  margin: "24px 0 16px",
+  backgroundColor: "#4285F4",
+  color: "white",
+  "&:hover": {
+    backgroundColor: "#357ae8",
+  },
+});
+
+const StyledLink = styled(Link)({
+  color: "#4285F4",
+  textDecoration: "none",
+  "&:hover": {
+    textDecoration: "underline",
+  },
+});
+
 const Signup = () => {
-  const [status, setStatus] = useState({
-    success: "",
-    message: "",
-  });
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [details, setDetails] = useState({
     name: "",
@@ -15,6 +57,7 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
   });
+  const navigate = useNavigate();
   const [isValid, setIsValid] = useState(false);
 
   const handleChange = (e) => {
@@ -23,20 +66,16 @@ const Signup = () => {
   };
 
   const handleValidation = () => {
-    if (
-      details.email.endsWith("@nitjsr.ac.in") &&
-      details.password === details.confirmPassword &&
-      details.password !== "" &&
-      details.name !== "" &&
-      details.confirmPassword !== ""
-    ) {
-      setIsValid(true);
-    } else {
-      setIsValid(false);
-    }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setIsValid(
+      details.email.match(emailPattern) &&
+        details.password === details.confirmPassword &&
+        details.name !== "" &&
+        details.password !== "" &&
+        details.confirmPassword !== ""
+    );
   };
 
-  // Call handleValidation whenever details state changes
   React.useEffect(() => {
     handleValidation();
   }, [details]);
@@ -45,153 +84,104 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true);
 
-    const response = await fetch("https://gds-cnitjsr-officalweb.vercel.app/api/v1/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: details.name,
-        email: details.email,
-        password: details.password,
-      }),
-    });
+    const response = await fetch(
+      "https://gds-cnitjsr-officalweb.vercel.app/api/v1/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: details.name,
+          email: details.email,
+          password: details.password,
+        }),
+      }
+    );
     const result = await response.json();
 
     if (!result.success) {
-      //console.log(result.message)
-      toast.error(result.message)
-      //alert(result.message)
-      setStatus({
-        success: "error",
-        message: result.message,
-      });
-
+      toast.error(result.message);
       setLoading(false);
     } else {
-      
-      console.log(result.email)
       localStorage.setItem("email", result.email);
-      toast.success("Admin Added Successfully")
-      //alert("Admin Created")
-      navigate("/login")
-      setStatus({
-        success: "success",
-        message: result.message,
-        email: result.email
-      });
+      toast.success("Admin Added Successfully");
+      navigate("/login");
       setLoading(false);
-      
     }
   };
 
   return (
-    <div >
-      {loading && <Spinner />}
-      <section className="bg-gray-50 dark:bg-gray-900" style={{ opacity: loading ? 0.3 : 1 }}>
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl dark:text-black">
-                Signup
-              </h1>
-              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                  >
-                    FULL NAME
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="xyz"
-                    required
-                    onChange={handleChange}
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                  >
-                    Email
-                  </label>
-                  
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="20XXXXX@nitjsr.ac.in"
-                    required
-                    onChange={handleChange}
-                  />
-                  <small style={{color : "red"}}>*email must be associated with the institute</small>
-                </div>
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required
-                    onChange={handleChange}
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="confirm-password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-                  >
-                    Confirm password
-                  </label>
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    id="confirm-password"
-                    placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required
-                    onChange={handleChange}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  disabled={!isValid}
-                  className={`w-full text-black bg-primary-600 bg-primary ${
-                    isValid
-                      ? "hover:bg-primary-700"
-                      : "cursor-not-allowed bg-gray-400"
-                  } focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800`}
-                >
-                  Create an account
-                </button>
-                <p className="text-sm font-light text-gray-500 dark:text-black">
-                  <strong>Already have an account?{" "}</strong>
-                  <Link
-                    to="/login"
-                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  >
-                    Login here
-                  </Link>
-                </p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+    <StyledContainer component="main" maxWidth="xs">
+      <StyledBox>
+        <Typography align="center" variant="h4" gutterBottom>
+          <img src={logo} alt="Google Logo" style={{ width: "200px" }} />
+        </Typography>
+        <StyledForm onSubmit={handleSubmit}>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="name"
+            label="Full Name"
+            name="name"
+            autoComplete="name"
+            autoFocus
+            onChange={handleChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            onChange={handleChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            autoComplete="new-password"
+            onChange={handleChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="confirmPassword"
+            label="Confirm Password"
+            type="password"
+            autoComplete="new-password"
+            onChange={handleChange}
+          />
+          <StyledButton
+            type="submit"
+            fullWidth
+            variant="contained"
+            disabled={!isValid || loading}
+          >
+            {loading ? (
+              <CircularProgress size={24} color="inherit" />
+            ) : (
+              "Sign Up"
+            )}
+          </StyledButton>
+          <Typography variant="body2" align="center">
+            Already have an account?{" "}
+            <StyledLink to="/login">Sign In</StyledLink>
+          </Typography>
+        </StyledForm>
+      </StyledBox>
+    </StyledContainer>
   );
 };
 
