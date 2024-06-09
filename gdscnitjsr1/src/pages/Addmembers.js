@@ -22,6 +22,9 @@ export const Addmembers = () => {
   const [github, setgit] = useState("");
   const [mail, setmail] = useState("");
   const [linkedin, setlinked] = useState("");
+  const [instagram, setInstagram] = useState("");
+  const [facebook, setFacebook] = useState("");
+  const [x, setX] = useState("");
 
   const authenticate = async () => {
     const value = localStorage.getItem("email");
@@ -30,7 +33,10 @@ export const Addmembers = () => {
       setauth(false);
       navigate("/login");
     } else {
-      const ans = await axios.post("https://gds-cnitjsr-officalweb.vercel.app/api/user/authenticate", { email: value });
+      const ans = await axios.post(
+        "https://gds-cnitjsr-officalweb.vercel.app/api/user/authenticate",
+        { email: value }
+      );
 
       if (ans && ans.data.success) {
         setauth(true);
@@ -83,6 +89,18 @@ export const Addmembers = () => {
     }
   };
 
+  const handleChangeInstagram = (e) => {
+    setInstagram(e.target.value);
+  };
+
+  const handleChangeFacebook = (e) => {
+    setFacebook(e.target.value);
+  };
+
+  const handleChangeX = (e) => {
+    setX(e.target.value);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -104,12 +122,19 @@ export const Addmembers = () => {
       formData.append("github", github);
       formData.append("mail", mail);
       formData.append("linkedin", linkedin);
+      formData.append("instagram", instagram);
+      formData.append("facebook", facebook);
+      formData.append("x", x);
 
-      const res = await axios.post("https://gds-cnitjsr-officalweb.vercel.app/api/user/addmember", formData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await axios.post(
+        "https://gds-cnitjsr-officalweb.vercel.app/api/user/addmember",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (res && res.data.success) {
         setres(res);
@@ -135,7 +160,7 @@ export const Addmembers = () => {
             <p className="fs-4">Add Member</p>
           </div>
           <div className="form-body">
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">
                   Name:
@@ -264,6 +289,45 @@ export const Addmembers = () => {
                 />
               </div>
               <div className="mb-3">
+                <label htmlFor="instagram" className="form-label">
+                  Instagram URL:
+                </label>
+                <input
+                  type="url"
+                  id="instagram"
+                  name="instagram"
+                  value={instagram}
+                  onChange={handleChangeInstagram}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="facebook" className="form-label">
+                  Facebook URL:
+                </label>
+                <input
+                  type="url"
+                  id="facebook"
+                  name="facebook"
+                  value={facebook}
+                  onChange={handleChangeFacebook}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="x" className="form-label">
+                  X:
+                </label>
+                <input
+                  type="text"
+                  id="x"
+                  name="x"
+                  value={x}
+                  onChange={handleChangeX}
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
                 <label htmlFor="teamType" className="form-label">
                   Team Type:
                 </label>
@@ -278,19 +342,32 @@ export const Addmembers = () => {
                   <option value="lead">Lead</option>
                 </select>
               </div>
-              <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+              <button
+                type="submit"
+                className="btn btn-primary w-100"
+                disabled={loading}
+              >
                 {loading ? "Adding..." : "Add Member"}
               </button>
             </form>
-            {resp && resp.data && resp.data.newUser && resp.data.newUser.imageurl && (
-              <>
-                <img src={resp.data.newUser.imageurl} alt="User" className="img-fluid mt-3" />
-                {console.log(resp.data.newUser.imageurl)}
-              </>
-            )}
+            {resp &&
+              resp.data &&
+              resp.data.newUser &&
+              resp.data.newUser.imageurl && (
+                <>
+                  <img
+                    src={resp.data.newUser.imageurl}
+                    alt="User"
+                    className="img-fluid mt-3"
+                  />
+                  {console.log(resp.data.newUser.imageurl)}
+                </>
+              )}
           </div>
         </div>
       </div>
     </>
   );
 };
+
+export default Addmembers;
