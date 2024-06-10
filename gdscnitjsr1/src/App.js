@@ -12,6 +12,7 @@ import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import CreatePost from "./components/createpost";
 import Postcontainer from "./components/postcontainer";
+import Post from "./components/post";
 function App() {
   return (
     <>
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/addmember" element={<Addmembers />} />
           <Route exact path="/createpost" element={<CreatePost />} />
           <Route exact path="/getposts" element={<Postcontainer />} />
+          <Route path="/post/:slug" element={<Post />} />
         </Routes>
       </Router>
     </>
