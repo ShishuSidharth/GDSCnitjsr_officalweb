@@ -52,12 +52,6 @@ const registerController = async (req, res) => {
 
       user.team = team;
       user.year = year;
-      user.github = github;
-      user.linkedin = linkedin;
-      user.mail = mail;
-      user.instagram = instagram;
-      user.facebook = facebook;
-      user.x = x;
       if (image) {
         // If image is provided, upload to cloudinary and update URL
         const result = await cloudinary.uploader.upload(image, {
