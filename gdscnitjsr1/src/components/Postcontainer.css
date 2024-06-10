@@ -1,0 +1,126 @@
+
+  body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    line-height: 1.6;
+  }
+  
+  .Poster {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .filter {
+    margin-bottom: 20px;
+  }
+  
+  .search {
+    display: inline-flex;
+    margin-bottom: 20px;
+  }
+  
+  .search__input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .search__button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-left: none;
+    background-color: #333;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  
+  .search__button i {
+    font-size: 16px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    margin: 0 5px;
+    outline: none;
+  }
+  
+  .button.--active {
+    background-color: #333;
+    color: white;
+    border: 1px solid #333;
+  }
+  
+  .cities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card {
+    width: calc(33.333% - 20px);
+    margin-bottom: 30px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card__background {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .card__image-meta {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+  }
+  
+  .card__image-title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .card__image-credits {
+    font-size: 14px;
+  }
+  
+  .card__details {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .card__details h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .card__details p {
+    font-size: 16px;
+  }
+  
