@@ -60,8 +60,8 @@ export default function PostPage() {
       </div>
     );
   return (
-    <main className="p-3 flex flex-col  bg-black text-white">
-      <h1 className="text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl font-bold">
+    <main className="p-3 flex flex-col bg-black text-white">
+      <h1 className="text-4xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto font-bold">
         {post && post.title}
       </h1>
       <Link
@@ -84,7 +84,7 @@ export default function PostPage() {
         </span>
       </div>
       <div
-        className="p-3 max-w-2xl mx-auto w-full post-content"
+        className="p-3 max-w-2xl mx-auto w-full post-content text-xl"
         dangerouslySetInnerHTML={{ __html: post && post.content }}
       ></div>
     </main>
