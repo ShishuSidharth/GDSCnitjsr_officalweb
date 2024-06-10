@@ -27,7 +27,7 @@ export default function CreatePost() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const registrations = localStorage.getItem("registrationarray");
+    const registrations = localStorage.getItem("registrationArray");
     if (!registrations || registrations === null) {
       navigate("/login");
     } else {
