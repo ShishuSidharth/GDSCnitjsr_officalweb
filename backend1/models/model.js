@@ -55,6 +55,9 @@ const schema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  registration: { type: String, required: true },
+  otp: { type: String },
+  otpExpiration: { type: Date },
   createdat: {
     type: Date,
     default: Date.now,

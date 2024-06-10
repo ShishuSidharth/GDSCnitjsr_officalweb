@@ -6,6 +6,7 @@ const multer = require("multer");
 const path = require("path");
 const Signup = require("./routes/Signup");
 const Login = require("./routes/Login");
+const OTP = require("./routes/otp");
 const AddEvent = require("./routes/Addevents");
 const AuthRoute = require("./routes/authRoute");
 const Displayevents = require("./routes/Displayevents");
@@ -76,7 +77,7 @@ app.use(express.urlencoded({ limit: "50mb" }));
 app.use("/api/user", AuthRoute);
 app.use("/api/v1/", Signup);
 app.use("/api/v1/", Login);
-
+app.use("/api/v1", OTP);
 app.use("/api/v1/", Displayevents);
 app.use("/api/v1/", Members);
 app.use("/api/v1/", verifytoken);
