@@ -13,11 +13,7 @@ function Navbar() {
     { name: "Our Team", link: "our-team" },
     { name: "Events", link: "events" },
     { name: "Socials", link: "socials" },
-    {
-      name: "Join Us",
-      link: "join-us",
-      url: "https://gdsc.community.dev/national-institute-of-technology-nit-jamshedpur/",
-    },
+    { name: "Join Us", link: "join-us", url: "https://gdsc.community.dev/national-institute-of-technology-nit-jamshedpur/" },
   ];
 
   let [open, setOpen] = useState(false);
@@ -27,27 +23,12 @@ function Navbar() {
   };
   const navigate = useNavigate();
 
-  const [islogin, setlogin] = useState(false);
-  const [isMember, setMember] = useState(false);
-  useEffect(() => {
-    const registrations = localStorage.getItem("registrationarray");
-    const registration = localStorage.getItem("registration");
-    if (
-      !registration ||
-      registration == null ||
-      !registrations.includes(registration)
-    ) {
-      console.log("registrations.includes(registration)");
-      setMember(false);
-    } else if (registrations.includes(registration)) {
-      setMember(true);
-    }
-  }, []);
+const [islogin,setlogin]=useState(false)
+
   const authenticate = async () => {
     const value = localStorage.getItem("email");
-
     if (!value) {
-      setlogin(false);
+  setlogin(false)
       // navigate("/login");
     } else {
       const ans = await axios.post(
@@ -58,7 +39,7 @@ function Navbar() {
       );
 
       if (ans && ans.data.success) {
-        setlogin(true);
+        setlogin(true)
         console.log(value);
         console.log(ans);
       } else {
@@ -70,15 +51,21 @@ function Navbar() {
     authenticate();
   }, [localStorage.getItem("email")]);
 
-  const handlelogout = () => {
-    localStorage.clear("email");
+
+  const handlelogout = ()=>{
+    localStorage.clear("email")
     window.location.reload();
-  };
+ }
+
+
+
 
   return (
     <div className="shadow-md w-full relative top-0 left-0 z-[3] h-[20px]] Navbar">
       <div className="md:flex items-center justify-between bg-white py-2 md:px-10 px-7 z-[10000]">
-        <div className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-gray-800">
+        <div
+          className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-gray-800"
+        >
           <img src={LOGO} className="w-[80%] sm:w-auto" alt="Logo" />
         </div>
 
@@ -115,11 +102,13 @@ function Navbar() {
                   {link.name}
                 </ScrollLink>
               )}
+              
             </li>
+            
           ))}
-          {!islogin && (
-            <>
-              {/* <li className="md:ml-8 text-xl md:my-0 my-7">
+       {!islogin && (
+  <>
+    {/* <li className="md:ml-8 text-xl md:my-0 my-7">
       <NavLink
         className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
         to="/signup"
@@ -128,56 +117,53 @@ function Navbar() {
         Register
       </NavLink>
     </li> */}
-              <li className="md:ml-8 text-xl md:my-0 my-7">
-                <NavLink
-                  className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
-                  to="/login"
-                  onClick={handleLinkClick}
-                >
-                  Login
-                </NavLink>
-              </li>
-            </>
-          )}
-          {islogin && (
-            <>
-              <li className="md:ml-8 text-xl md:my-0 my-7">
-                <NavLink
-                  className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
-                  to="/addmember"
-                  onClick={handleLinkClick}
-                >
-                  Add Members
-                </NavLink>
-              </li>
-              <li className="md:ml-8 text-xl md:my-0 my-7">
-                <NavLink
-                  className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
-                  to="/addevents"
-                  onClick={handleLinkClick}
-                >
-                  Add Events
-                </NavLink>
-              </li>
-              <li className="md:ml-8 text-xl md:my-0 my-7">
-                <Button
-                  className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
-                  onClick={handlelogout}
-                >
-                  Logout
-                </Button>
-              </li>
-            </>
-          )}
-          <li className="md:ml-8 text-xl md:my-0 my-7">
-            <NavLink
-              className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
-              to="/getposts"
-              onClick={handleLinkClick}
-            >
-              Posts
-            </NavLink>
-          </li>
+    <li className="md:ml-8 text-xl md:my-0 my-7">
+      <NavLink
+        className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
+        to="/login"
+        onClick={handleLinkClick}
+      >
+        Login
+      </NavLink>
+    </li>
+  </>
+)}
+{
+  islogin && (
+    <>
+      
+    <li className="md:ml-8 text-xl md:my-0 my-7">
+      <NavLink
+        className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
+        to="/addmember"
+        onClick={handleLinkClick}
+      >
+        Add Members
+      </NavLink>
+    </li>
+    <li className="md:ml-8 text-xl md:my-0 my-7">
+      <NavLink
+        className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
+        to="/addevents"
+        onClick={handleLinkClick}
+      >
+        Add Events
+      </NavLink>
+    </li>
+    <li className="md:ml-8 text-xl md:my-0 my-7">
+      <Button
+        className="text-gray-800 hover:text-gray-400 duration-500 cursor-pointer"
+        
+        onClick={handlelogout}
+      >
+        Logout
+      </Button>
+    </li>
+    </>
+  )
+}
+
+      
         </ul>
       </div>
     </div>

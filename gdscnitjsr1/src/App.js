@@ -1,18 +1,16 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
-import Home from "./components/home";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
-import EventsPage from "./pages/Events";
-import { Addmembers } from "./pages/Addmembers";
 
-import "./App.css";
-import "react-toastify/dist/ReactToastify.css";
-import CreatePost from "./components/createpost";
-import Postcontainer from "./components/postcontainer";
-import Post from "./components/post";
+import Home from './components/home'
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import EventsPage from './pages/Events';
+import { Addmembers } from './pages/Addmembers';
+
+import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -22,14 +20,12 @@ function App() {
         <Routes>
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/" element={<Home />} />
+           <Route exact path="/" element={<Home />} />
           <Route exact path="/addevents" element={<EventsPage />} />
           <Route exact path="/addmember" element={<Addmembers />} />
-          <Route exact path="/createpost" element={<CreatePost />} />
-          <Route exact path="/getposts" element={<Postcontainer />} />
-          <Route path="/post/:slug" element={ <Post/>} />
         </Routes>
       </Router>
+       
     </>
   );
 }

@@ -6,27 +6,28 @@ const multer = require("multer");
 const path = require("path");
 const Signup = require("./routes/Signup");
 const Login = require("./routes/Login");
-const AddEvent = require("./routes/Addevents");
-const AuthRoute = require("./routes/authRoute");
-const Displayevents = require("./routes/Displayevents");
-const Members = require("./routes/Displaymembers");
+const AddEvent = require("./routes/Addevents")
+const AuthRoute=require("./routes/authRoute")
+const Displayevents = require("./routes/Displayevents")
+const Members = require("./routes/Displaymembers")
 const verifytoken = require("./routes/verifytoken");
 const bodyParser = require("body-parser");
-const Delete = require("./routes/Delete");
-const postRoutes = require("./routes/post.route");
+const Delete = require("./routes/Delete")
 const app = express();
 app.use(
   cors({
+
     origin: "*",
 
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+   
   })
 );
 // app.use('/userImages',express.static('userImages'))
 // app.use('/thumbnail',express.static('thumbnail'))
 
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 // app.use(express.static("public"))
 dotenv.config();
 // dotenv.config({ path: "./config/config.env" });
@@ -42,6 +43,9 @@ connectDB();
 //   })
 // })
 
+
+
+
 // const storage = multer.diskStorage({
 //   destination: function (req, file, cb) {
 //     cb(null, 'userImages/')
@@ -52,6 +56,12 @@ connectDB();
 // })
 
 // const upload = multer({ storage: storage })
+
+
+
+
+
+
 
 // const storage1 = multer.diskStorage({
 //   destination: function (req, file, cb) {
@@ -64,12 +74,15 @@ connectDB();
 
 // const upload1 = multer({ storage: storage1 })
 
+
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.use(express.json({ limit: "50mb" }));
-app.use(express.urlencoded({ limit: "50mb" }));
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
+
+
 
 //app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
 // app.use("/api/user", require("./routes/authRoute"));
@@ -77,14 +90,14 @@ app.use("/api/user", AuthRoute);
 app.use("/api/v1/", Signup);
 app.use("/api/v1/", Login);
 
-app.use("/api/v1/", Displayevents);
-app.use("/api/v1/", Members);
-app.use("/api/v1/", verifytoken);
-app.use("/api/v1/", AddEvent);
+app.use("/api/v1/",Displayevents );
+app.use("/api/v1/",Members );
+app.use("/api/v1/",verifytoken );
+app.use("/api/v1/",AddEvent);
 
-app.use("/api/v1/", Delete);
+app.use("/api/v1/",Delete);
 // app.use("/api/search", tokenCheck, searchRouter);
-app.use("/api/post", postRoutes);
+
 
 // app.use("/api/upload", tokenCheck, require("./routes/uploadRoutes"));
 //app.use("/api/upload", require("./routes/uploadRoutes"));
