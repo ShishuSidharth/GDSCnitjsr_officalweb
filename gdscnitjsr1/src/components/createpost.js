@@ -29,14 +29,14 @@ export default function CreatePost() {
   useEffect(() => {
     const registrations = localStorage.getItem("registrationArray");
     if (!registrations || registrations === null) {
-      navigate("/login");
+      navigate("/mml");
     } else {
       setFormData({ ...formData, registrations: registrations });
     }
 
     const registration = localStorage.getItem("registration");
     if (registration == null || !registration) {
-      navigate("/login");
+      navigate("/mml");
     } else {
       setFormData({ ...formData, registration: registration });
     }
