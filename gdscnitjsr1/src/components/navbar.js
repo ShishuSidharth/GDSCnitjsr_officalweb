@@ -30,7 +30,7 @@ function Navbar() {
   const [islogin, setlogin] = useState(false);
   const [isMember, setMember] = useState(false);
   useEffect(() => {
-    const registrations = localStorage.getItem("registrationarray");
+    const registrations = localStorage.getItem("registrationArray");
     const registration = localStorage.getItem("registration");
     if (
       !registration ||
