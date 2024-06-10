@@ -11,7 +11,7 @@ import { Addmembers } from "./pages/Addmembers";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
 import CreatePost from "./components/createpost";
-
+import Postcontainer from "./components/postcontainer";
 function App() {
   return (
     <>
@@ -24,6 +24,7 @@ function App() {
           <Route exact path="/addevents" element={<EventsPage />} />
           <Route exact path="/addmember" element={<Addmembers />} />
           <Route exact path="/createpost" element={<CreatePost />} />
+          <Route exact path="/getposts" element={<Postcontainer />} />
         </Routes>
       </Router>
     </>
