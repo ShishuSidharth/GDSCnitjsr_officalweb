@@ -34,7 +34,6 @@ const schema = new mongoose.Schema({
   github: {
     type: String,
     required: false,
-    default: "https://github.com",
   },
   mail: {
     type: String,
@@ -43,22 +42,18 @@ const schema = new mongoose.Schema({
   linkedin: {
     type: String,
     required: false,
-    default: "https://linkedin.com",
   },
   facebook: {
     type: String,
     required: false,
-    default: "https://facebook.com",
   },
   instagram: {
     type: String,
     required: false,
-    default: "https://instagram.com",
   },
   x: {
     type: String,
     required: false,
-    default: "https://x.com",
   },
   createdat: {
     type: Date,
