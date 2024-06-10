@@ -16,7 +16,7 @@ function Poster() {
   useEffect(() => {
     // Fetch data from API using Axios
     axios
-      .get("http://localhost:3080/api/post/getposts")
+      .get("https://gds-cnitjsr-officalweb.vercel.app/api/post/getposts")
       .then((response) => {
         setPosts(response.data.posts);
         setLoading(false);
