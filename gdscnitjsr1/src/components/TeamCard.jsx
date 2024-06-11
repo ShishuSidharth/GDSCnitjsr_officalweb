@@ -12,6 +12,8 @@ import {
 
 const TeamCard = (props) => {
   const displayID = props.Description === "" ? "none" : "block";
+  const leaddisplay=props.islead==="lead"? "":"rounded-full"
+  const className=`m-auto md:h-[300px] md:w-[300px] h-[225px] w-[225px] object-cover ${leaddisplay} cursor-pointer`
   return (
     <div
       className={styles.core_mem}
@@ -20,7 +22,7 @@ const TeamCard = (props) => {
       <div className={styles.body}>
         <div className={styles.core_images}>
         <img
-        className="m-auto md:h-[300px] md:w-[300px] h-[225px] w-[225px] object-cover rounded-full cursor-pointer"
+        className={className}
         src={props.imageSrc}
         alt={props.Name}
       />
