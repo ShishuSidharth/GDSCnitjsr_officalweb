@@ -101,8 +101,8 @@ const Leads = () => {
                         key={index}
                         imageSrc={person.img}
                         Name={person.name}
-                        Domain={person.position}
-                        Description={person.description}
+                        Domain={person.description}
+                        Description={person.position}
                         Linkedin={person.linkedin}
                         Github={person.github}
                         Instagram={person.instagram}
