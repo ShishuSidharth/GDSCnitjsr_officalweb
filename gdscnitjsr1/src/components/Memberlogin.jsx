@@ -76,13 +76,16 @@ const MemberLoginPage = () => {
         registration: registrationNo,
       });
       if (!response.data.success) {
-        console.error("Error sending OTP:", response.data.message);
+        console.error("Error sending OTP:", response.data.msg);
+        toast.error(response.data.msg)
       } else {
-        console.log("OTP sent successfully:", response.data.otp);
+        console.log("OTP sent successfully:", response.data.msg);
+        toast.success(response.data.msg)
         setOtpSent(true);
       }
     } catch (error) {
       console.error("Error sending OTP:", error);
+      toast.error("something went wrong")
     } finally {
       setLoading(false);
     }
@@ -106,6 +109,7 @@ const MemberLoginPage = () => {
         navigate("/createpost");
       }
     } catch (error) {
+      toast.error("something went wrong")
       console.error("Error verifying OTP:", error);
     } finally {
       setLoading(false);
