@@ -48,6 +48,12 @@ const registerController = async (req, res) => {
       user.name = name;
       user.branch = branch;
       user.teamType = teamType;
+      user.mail = mail;
+      user.instagram = instagram;
+      user.x = x;
+      user.facebook = facebook;
+      user.github = github;
+      user.linkedin = linkedin;
       // if(createdat)user.createdat = createdat ;
 
       user.team = team;
