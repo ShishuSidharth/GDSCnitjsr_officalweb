@@ -15,8 +15,13 @@ router.post("/otp", async (req, res) => {
   try {
     const user = await Model.findOne({ registration });
     // console.log(user);
-    if (!user) return res.json({ msg: "faluty " });
-
+    if (!user) return res.json({ msg: "BE MEMBER", success: false });
+    if (!user.mail) {
+      return res.json({
+        success: false,
+        msg: "PLEASE ADD YOUR EMAIL IN DATABASE",
+      });
+    }
     const otp = crypto.randomInt(100000, 999999).toString();
     // console.log("1");
     const transporter = nodemailer.createTransport({
@@ -48,9 +53,9 @@ router.post("/otp", async (req, res) => {
     await user.save();
     // console.log("6");
 
-    return res.json({ otp: "sent successfully", success: true });
+    return res.json({ msg: "sent successfully", success: true });
   } catch (e) {
-    res.json({ success: false, message: "Internal Server Error fault" });
+    res.json({ success: false, msg: "Internal Server Error fault" });
   }
 });
 
