@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.post("/create", create);
 router.get("/getposts", getposts);
-router.delete("/deletepost/:postId/:userId", deletepost);
+router.delete("/deletepost/:slug", deletepost);
 router.put("/updatepost/:postId/:userId", updatepost);
 
 module.exports = router;
