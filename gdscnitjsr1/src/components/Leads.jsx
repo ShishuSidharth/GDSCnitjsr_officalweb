@@ -21,7 +21,7 @@ const Leads = () => {
             instagram: "https://instagram.com/akash.ranjan",
             facebook: "",
             website: "",
-            gmail: "akash.ranjan@example.com"
+            gmail: "2021ugee063@nitjsr.ac.in"
         },
         {
             img: Sh,
@@ -45,7 +45,7 @@ const Leads = () => {
             instagram: "https://instagram.com/sidharth.sharma",
             facebook: "",
             website: "",
-            gmail: "sidharth.sharma@example.com"
+            gmail: "2021ugmm063@nitjsr.ac.in"
         },
         {
             img: Adi,

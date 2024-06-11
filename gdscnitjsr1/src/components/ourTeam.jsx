@@ -25,19 +25,18 @@ import TeamCard from "./TeamCard";
 const PersonCard = ({ person }) => {
   return (
     <>
-       <TeamCard
-    imageSrc={person.imageurl}
-    Name={person.name}
-    Description={person.team} // or any description if available
-    Domain={person.branch}
-    Website={person.x} // assuming 'x' is the website, replace if not correct
-    Linkedin={person.linkedin}
-    Facebook={person.facebook}
-    Github={person.github}
-    Instagram={person.instagram}
-    gmail={person.mail} // add this if there's a need for Instagram icon
-  />
-      
+      <TeamCard
+        imageSrc={person.imageurl}
+        Name={person.name}
+        Description={person.team} // or any description if available
+        Domain={person.branch}
+        Website={person.x} // assuming 'x' is the website, replace if not correct
+        Linkedin={person.linkedin}
+        Facebook={person.facebook}
+        Github={person.github}
+        Instagram={person.instagram}
+        gmail={person.mail} // add this if there's a need for Instagram icon
+      />
     </>
   );
 };
@@ -52,9 +51,10 @@ const OurTeam = () => {
         const response = await axios.get(
           "https://gds-cnitjsr-officalweb.vercel.app/api/v1/displaymembers"
         );
-        setProfiles(response.data);
+        const filteredProfiles = response.data.filter(person => person.teamType !== "lead");
+        setProfiles(filteredProfiles);
 
-        const registrationArray = response.data.map((person) => person.registration);
+        const registrationArray = filteredProfiles.map((person) => person.registration);
         localStorage.setItem("registrationArray", JSON.stringify(registrationArray));
       } catch (error) {
         console.error("Error fetching data:", error);
