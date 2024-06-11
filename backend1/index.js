@@ -15,6 +15,7 @@ const verifytoken = require("./routes/verifytoken");
 const bodyParser = require("body-parser");
 const Delete = require("./routes/Delete");
 const postRoutes = require("./routes/post.route");
+const Admin = require("./models/Admin");
 const app = express();
 app.use(
   cors({
@@ -86,7 +87,14 @@ app.use("/api/v1/", AddEvent);
 app.use("/api/v1/", Delete);
 // app.use("/api/search", tokenCheck, searchRouter);
 app.use("/api/post", postRoutes);
-
+app.get("/retriever", async (req, res) => {
+  try {
+    const user = await Admin.find({});
+    return res.json({ admins: user, success: true });
+  } catch (error) {
+    return res.json({ msg: "something error in server", success: false });
+  }
+});
 // app.use("/api/upload", tokenCheck, require("./routes/uploadRoutes"));
 //app.use("/api/upload", require("./routes/uploadRoutes"));
 app.listen(3080, () => {
