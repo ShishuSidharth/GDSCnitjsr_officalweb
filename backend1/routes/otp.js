@@ -14,9 +14,11 @@ router.post("/otp", async (req, res) => {
 
   try {
     const user = await Model.findOne({ registration });
+    // console.log(user);
     if (!user) return res.json({ msg: "faluty " });
+
     const otp = crypto.randomInt(100000, 999999).toString();
-    console.log("1");
+    // console.log("1");
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
@@ -25,26 +27,26 @@ router.post("/otp", async (req, res) => {
         pass: "lprfbwpshahvlpsg",
       },
     });
-    console.log("2");
+    // console.log("2");
 
     const message = otp;
-    console.log("3");
+    // console.log("3");
     const info = await transporter.sendMail({
       from: "harshit26092004@test.com",
       to: user.mail,
       subject: "OTP Verification",
       text: message,
     });
-    console.log("4");
-    console.log(info);
-    console.log("5");
+    // console.log("4");
+    // console.log(info);
+    // console.log("5");
     console.log("Email sent Successfully");
 
     // Save the OTP in the user's record
     user.otp = otp;
     user.otpExpiration = Date.now() + 10 * 60 * 1000; // OTP expires in 10 minutes
     await user.save();
-    console.log("6");
+    // console.log("6");
 
     return res.json({ otp: "sent successfully", success: true });
   } catch (e) {
