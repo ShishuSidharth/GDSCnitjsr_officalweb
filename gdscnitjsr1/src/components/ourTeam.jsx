@@ -98,7 +98,7 @@ const OurTeam = () => {
       <br />
       <br />
       <Swiper
-        className="md:h-[440px] h-[350px]"
+        className="md:h-[500px] h-[400px]"
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         navigation
         pagination={{ clickable: true }}
