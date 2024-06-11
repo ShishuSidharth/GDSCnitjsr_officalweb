@@ -20,25 +20,23 @@ import "swiper/css/scrollbar";
 import Llogo from "../img/gdsc bracket left.svg";
 import Rlogo from "../img/gdsc bracket right.svg";
 import Example from "./link";
+import TeamCard from "./TeamCard";
 
 const PersonCard = ({ person }) => {
   return (
     <>
-      <img
-        className="m-auto md:h-[300px] md:w-[300px] h-[225px] w-[225px] object-cover rounded-full cursor-pointer"
-        src={person.imageurl}
-        alt={person.name}
-      />
-      
-        <Example
-          name={person.name}
-          githublink={person.github}
-          instagramlink={person.instagram}
-          linkedinlink={person.linkedin}
-          facebooklink={person.facebook}
-          xlink={person.x}
-          gmail={person.mail}
-        />
+       <TeamCard
+    imageSrc={person.imageurl}
+    Name={person.name}
+    Description={person.team} // or any description if available
+    Domain={person.branch}
+    Website={person.x} // assuming 'x' is the website, replace if not correct
+    Linkedin={person.linkedin}
+    Facebook={person.facebook}
+    Github={person.github}
+    Instagram={person.instagram}
+    gmail={person.mail} // add this if there's a need for Instagram icon
+  />
       
     </>
   );
