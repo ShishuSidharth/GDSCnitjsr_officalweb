@@ -15,6 +15,7 @@ const verifytoken = require("./routes/verifytoken");
 const bodyParser = require("body-parser");
 const Delete = require("./routes/Delete");
 const postRoutes = require("./routes/post.route");
+const Hackathon = require("./routes/hackathon.js");
 const Admin = require("./models/Admin");
 const app = express();
 app.use(
@@ -83,7 +84,7 @@ app.use("/api/v1/", Displayevents);
 app.use("/api/v1/", Members);
 app.use("/api/v1/", verifytoken);
 app.use("/api/v1/", AddEvent);
-
+app.use("/api/v1/hackathon", Hackathon);
 app.use("/api/v1/", Delete);
 // app.use("/api/search", tokenCheck, searchRouter);
 app.use("/api/post", postRoutes);

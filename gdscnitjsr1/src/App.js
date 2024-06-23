@@ -14,6 +14,9 @@ import CreatePost from "./components/createpost";
 import Postcontainer from "./components/postcontainer";
 import Post from "./components/post";
 import MemberLoginPage from "./components/Memberlogin";
+import Registerforhackathon from "./pages/HackathonRegistration";
+import HackathonTable from "./pages/participantpage";
+import HackathonPage from "./pages/HackathonPage";
 function App() {
   return (
     <>
@@ -29,6 +32,9 @@ function App() {
           <Route exact path="/getposts" element={<Postcontainer />} />
           <Route path="/post/:slug" element={<Post />} />
           <Route path="/mml" element={<MemberLoginPage />} />
+          <Route path="/hackathon" element={<Registerforhackathon />} />
+          <Route path="/hackathontable" element={<HackathonTable />} />
+          <Route path="/hackathonpage" element={<HackathonPage />} />
         </Routes>
       </Router>
     </>
